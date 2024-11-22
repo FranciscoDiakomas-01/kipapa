@@ -1,0 +1,103 @@
+
+
+#shops{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 80px;
+}
+#shops > * {
+    padding: 0 50px;
+}
+
+
+#shops > article:first-of-type{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 19pt;
+    width: 100%;
+    align-items: center;
+    background-image: linear-gradient(#00000087 , #000000aa), url(../../assets/bugger.jpg);
+    color: var(--white);
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    font-size: 62pt;
+    background-size: contain;
+}
+#shops > article:first-of-type h1{
+    transition: all .5s linear;
+    animation: apper2 1s linear;
+
+}
+
+#shops > article:last-child{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    min-height: 200px;
+    padding: 10px;
+}
+
+#shops > article:last-child table{
+    width: 90%;
+    transition: all .5s linear;
+    animation: apper 1s linear;
+}
+#shops > article:last-child table thead{
+    background-color: var(--pink);
+    height: 50px;
+    color: var(--white);
+}
+#shops > article:last-child table thead td{
+    padding-left: 5px;
+}
+
+#shops > article:last-child table tbody td{
+    padding-left: 5px;
+    height: 45px;
+}
+
+#shops > article:last-child table tbody tr:nth-of-type(even){
+    background-color: var(--gray2);
+}
+#shops > article:last-child table tbody td:last-of-type{
+    width: 130px;
+}
+
+#shops > article:last-child table tbody td p{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    background-color: #1e9f79;
+    border-radius: 30px;
+    color: #02ffb3;
+    font-size: 11pt;
+}
+#shops > article:last-child  > p{
+    color: var(--pink);
+}
+
+#shops > article:last-child span{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    justify-content: center;
+}
+
+#shops > article:last-child button{
+    width: 80px;
+    height: 40px;
+    border: none;
+    background-color: var(--pink);
+    color: var(--white);
+    border-radius: 6px;
+}

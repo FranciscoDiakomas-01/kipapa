@@ -1,0 +1,28 @@
+#loader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    overflow: hidden;
+}
+#loader i{
+    display: flex;
+    height: 60px;
+    width: 60px;
+    border: solid var(--pink) 4px;
+    border-bottom: transparent solid 4px;
+    border-radius: 50%;
+    transition: all .5s linear;
+    animation: rotate 1s linear  infinite ;
+}
+
+@keyframes rotate {
+    
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

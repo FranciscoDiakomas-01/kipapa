@@ -1,0 +1,16 @@
+::-webkit-scrollbar{
+    color: #fff;
+    width: 10px;
+    height: 40px;
+}
+::selection{
+    background-color: var(--pink);
+    color: #fff;
+
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--pink);
+    border-radius: 0px;
+    width: 8px;
+    height: 20px;
+}

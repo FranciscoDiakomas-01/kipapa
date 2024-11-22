@@ -1,0 +1,85 @@
+
+
+
+#checkout{
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    padding-top: 80px;
+
+}
+
+#checkout > article:first-of-type{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 62pt;
+    width: 100%;
+    background-image: linear-gradient(#00000087 , #000000aa), url(../../assets/461684103_18018236708605621_8340506677745608830_n.jpg);
+    color: var(--white);
+    height: 400px;
+    background-size: contain;
+}
+
+#checkout > article:first-of-type h1{
+    transition: all .5s linear;
+    animation: apper2 1s linear;
+
+}
+
+#checkout > article:last-of-type{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    gap: 40px;
+    padding: 80px;
+}
+
+#checkout > article:last-of-type form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    gap: 30px;
+    width: 60%;
+    transition: all .5s linear;
+    animation: apper 1s linear;
+}
+
+#checkout > article:last-of-type > div{
+    display: flex;
+    gap: 20px;
+    width: 60%;
+    justify-content: space-between;
+}
+#checkout > article:last-of-type h1{
+    color: var(--pink);
+    font-size: 22pt;
+    transition: all .5s linear;
+    animation: apper2 1s linear;
+}
+
+#checkout > article:last-of-type button{
+    color: var(--white);
+    font-size: 12pt;
+    border: none;
+    background-color: var(--pink);
+    height: 40px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+#checkout > article:last-of-type button:last-of-type{
+    background-color: var(--white);
+    color: var(--pink);
+    border: solid 1px;
+}
+#checkout > article:last-of-type form div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

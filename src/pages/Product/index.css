@@ -1,0 +1,235 @@
+
+
+#product{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 80px;
+}
+#product > * {
+    padding: 0 50px;
+}
+
+#product > button{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    border: none;
+    background-color: var(--pink);
+    color: var(--white);
+    height: 40px;
+    align-items: center;
+    border-radius: 4px;
+    gap: 10px;
+
+}
+#product > div{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 19pt;
+    width: 100%;
+    align-items: center;
+    background-image: linear-gradient(#00000087 , #000000aa), url(../../assets/bugger.jpg);
+    color: var(--white);
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    font-size: 62pt;
+    background-size: contain;
+}
+
+#product > form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#product > form select{
+    width: 600px;
+    height: 45px;
+    border: solid var(--pink) 1px;
+    outline: none;
+    padding-left: 5px;
+    font-size: 12pt;
+    transition: all .5s linear;
+}
+
+#product > form button{
+    width: 60px;
+    height: 45px;
+    border-radius: 4px;
+    border: none;
+    background-color: var(--pink);
+    color: var(--white);
+    margin-right: -4px;
+}
+
+
+#product > article div:hover{
+    border: solid 1px var(--pink);
+    opacity: 1;
+}
+#product > article div:active{
+    border: none;
+    opacity: 1;
+    background-color: var(--pink);
+    color: var(--white);
+}
+#product > article div:hover *{
+    filter: grayscale(0%);
+}
+#product > div h1{
+    transition: all .5s linear;
+    animation: apper 1s linear;
+}
+
+#product  > aside{
+    width: 100%;
+    gap: 20px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+#product  > aside img{
+    height: 150px;
+    width: 150px;
+}
+
+#product  > aside figure{
+    background-color: var(--white);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 4px 4px 4px #06000020;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    background-color: var(--gray);
+    transition: all .5s linear;
+    animation: apper2 2s linear;
+}
+
+#product > h2{
+    transition: all .5s linear;
+    animation: apper 1s linear;
+}
+@keyframes apper {
+
+    from{
+        opacity: 0;
+        translate: -100vw 0;
+    }
+    to{
+        opacity: 1;
+        translate: 0 0;
+    }
+    
+}
+
+@keyframes apper2 {
+
+    from{
+        opacity: 0;
+        translate: 100vw 0;
+    }
+    to{
+        opacity: 1;
+        translate: 0 0;
+    }
+    
+}
+#product  > aside figure > svg{
+    position: absolute;
+    right: 10px;
+    font-size: 18pt;
+    cursor: pointer;
+    color: var(--gray2);
+}
+
+#product  > aside figure > p{
+    position: absolute;
+    left: 0px;
+    top: 0;
+    font-size: 11pt;
+    cursor: pointer;
+    padding:6px;
+    color: var(--gray2);
+    background-color: var(--pink);
+}
+#product  > aside button{
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    border: solid 1.5px var(--white);
+    background-color: var(--pink);
+    color: var(--white);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 14pt;
+}
+
+
+#product  > aside figure >  div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#product  > aside figure h3{
+    color: var(--pink);
+    text-align: center;
+}
+#product  > aside figcaption{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#product  > aside figure  aside{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+#product  > aside figcaption svg{
+    color: var(--pink);
+}
+#product  > aside figcaption div{
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+#product  > aside figcaption del{
+    text-decoration: line-through;
+    color: var(--pink);
+    margin-left: 10px;
+}
+#product  > aside figcaption >  strong:first-of-type{
+    text-align: center;
+    color: var(--green);
+}
+
+#product  > aside figcaption div{
+    display: flex;
+    width: 100%;
+    gap:4px;
+    word-wrap: break-word;
+    border: solid 1px var(--gray);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12pt;
+}
+#product  > aside figcaption div p{
+    width: 100%;
+    line-height: 20px;
+}

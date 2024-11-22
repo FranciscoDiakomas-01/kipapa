@@ -1,0 +1,112 @@
+
+
+#card{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 89%;
+    display: flex;
+    background-color: var(--gray2);
+    overflow-y: scroll;
+    width: 0%;
+    transition: all .5s linear;
+}
+
+#card.open{
+    width:450px;
+    opacity: 1;
+}
+
+#card  > aside{
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 80px;
+    margin-top: 15px;
+    transition: all .5s linear;
+}
+#card  > div > span{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    background-color: var(--white);
+    padding: 10px;
+    font-weight: bold;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#card  > button:first-of-type{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 30px;
+    background-color: transparent;
+    color: var(--pink);
+    font-size: 14pt;
+}
+#card  > div{
+    width: 450px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+#card  > div > button{
+    width: 100%;
+    background-color: var(--pink);
+    color: var(--white);
+    height: 45px;
+}
+#card  > aside >  div{
+    display: flex;
+    background-color: var(--white);
+    height: 130px;
+    width: 100%;
+    margin: 10px 0;
+    color: black;
+    align-items: center;
+    padding: 10px;
+    gap: 50px;
+    box-shadow: 4px 4px 4ic #00000021;
+    border-radius: 6px;
+}
+#card span *{
+    overflow: hidden;
+}
+#card  > aside >  h1{
+    font-size: 22pt;
+    color: var(--pink);
+    text-align: center;
+}
+
+#card strong{
+    color: var(--pink);
+}
+#card i{
+    color: var(--green);
+}
+#card  > aside >  div img{
+    height: 100px;
+    width: 30%;
+}
+#card  > aside >  div span{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0;
+    height: 100%;
+    width: 80%;
+}
+
+#card  > aside >  div button{
+    background-color: var(--pink);
+    color: var(--white);
+}
+
+#card  > aside >  div button:last-of-type{
+    background-color: var(--white);
+    color: var(--pink);
+    border: solid  1px;
+}

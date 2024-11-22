@@ -1,0 +1,123 @@
+#category{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    margin-top: 80px;
+}
+
+@keyframes apper {
+
+    from{
+        opacity: 0;
+        translate: -100vw 0;
+    }
+    to{
+        opacity: 1;
+        translate: 0 0;
+    }
+    
+}
+
+@keyframes apper2 {
+
+    from{
+        opacity: 0;
+        translate: 100vw 0;
+    }
+    to{
+        opacity: 1;
+        translate: 0 0;
+    }
+    
+}
+
+#category > article:first-of-type h1{
+    
+    transition: all .5s linear;
+    animation: apper 1s linear;
+}
+#category > article:first-of-type{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 19pt;
+    width: 100%;
+    align-items: center;
+    background-image: linear-gradient(#00000087 , #000000aa), url(../../assets/457502520_18013934408605621_3259600718425961618_n.jpg);
+    color: var(--white);
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    font-size: 62pt;
+    background-size: contain;
+}
+
+#category > article:last-of-type{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#category > article:last-of-type > *{
+    padding: 0 30px;
+}
+#category > article:last-of-type aside{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+#category > article:last-of-type img{
+    height: 130px;
+    width: 130px;
+}
+
+#category > article:last-of-type figure{
+    display: flex;
+    border: none;
+    background-color: var(--gray);
+    padding: 10px ;
+    border-radius: 5px;
+    justify-content: space-between;
+    gap: 40px;
+    transition: all .5s linear;
+    box-shadow: 4px 4px 4px #00000024;
+    animation: apper2 1s linear;
+}
+#category > article:last-of-type figure span{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+}
+#category > article:last-of-type figure span i {
+    display: flex;
+    color: black;
+    text-align: start;
+    align-items: center;
+    gap: 4px;
+}
+#category > article:last-of-type figure span  svg{
+    color: black;
+    font-size: 15px;
+    color: var(--pink);
+}
+
+#category > article:last-of-type figure > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#category > article:last-of-type figure > div button{
+    height: 35px;
+    border: none;
+    background-color: var(--pink);
+    color: var(--white);
+    border-radius: 5px;
+    width: 140px;
+}

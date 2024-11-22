@@ -101,3 +101,39 @@
     color: var(--white);
     border-radius: 6px;
 }
+
+
+ #shops > article:last-child figure{
+        display: none;
+    }
+/*Telefone*/
+@media screen and (max-width : 720px) {
+
+    #shops > article:last-child table{
+        display: none;
+    }
+    #shops > article:first-of-type{
+    font-size: 25pt;
+    background-size: contain;
+    height: 200px;
+}
+
+    #shops > article:last-child figure{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background-color: var(--gray2);
+        padding: 20px;
+        border-radius: 8px;
+        width: 90%;
+    transition: all .5s linear;
+    animation: apper 1s linear;
+    }
+    #shops > article:last-child  figure > p:last-child{
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+    }
+}

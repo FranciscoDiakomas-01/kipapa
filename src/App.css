@@ -17,6 +17,7 @@
 button , svg{
   cursor: pointer;
   transition: all .5s linear;
+  border: none;
 }
 
 button:active , svg:active{
@@ -122,4 +123,44 @@ textarea{
   border-radius: 5px;
   font-size: 12pt;
   border: solid 1px #e0dcdc;
+}
+ footer > div > span:last-of-type a{
+    width: 40px;
+  }
+
+/*
+Telefone
+*/
+@media screen and (max-width : 720px) {
+
+  footer{
+    grid-template-columns: 1fr;
+    background-color : #3c3c3c;
+  }
+    footer > div > span:first-of-type{
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  footer > div > span:last-of-type{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 0;
+  }
+
+ 
+  footer > div > p{
+    text-align: center;
+  }
+  footer > div{
+    gap: 20px;
+  } footer > div:last-of-type p{
+    display: none;
+  }
+  footer  button{
+    border-radius:6px;
+    width: 130px;
+  }
 }

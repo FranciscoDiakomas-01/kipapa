@@ -49,3 +49,14 @@
     gap: 20px;
     width: 100%;
 }
+
+
+
+/*Telefone*/
+@media screen and (max-width : 720px) {
+#acount > form{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 90%;
+}
+}

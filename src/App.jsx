@@ -104,7 +104,11 @@ export function App() {
         <div>
           <h1>Horário</h1>
           <p>Estamos Abertos Todos dias das 08h às 22hr</p>
-          <button>Estamos Fechados</button>
+          <button>
+            {
+              new Date().getHours() < 8 || new Date().getHours() > 22  ? 'Estamos Fechado' :'Estamos Aberto'
+            }
+          </button>
         </div>
         <p>Kipapa&copy; | Todos dos Direitos Reservados</p>
       </footer>

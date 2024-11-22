@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from '../../assets/321097281_1948082938901845_9073110493333833804_n.jpg'
-import { FaUser  , FaShoppingCart} from "react-icons/fa";
+import { FaUser  , FaShoppingCart , FaBars} from "react-icons/fa";
 import './index.css'
 import Card from "../Card";
 import { useEffect , useState } from "react";
@@ -62,7 +62,26 @@ return (
         </sup>
         <button>sair</button>
       </div>
+      <FaBars onClick={() => {
+        const leftBar = document.getElementById("leftBar");
+        leftBar.classList.toggle('open')
+        
+      }}/>
     </nav>
+
+    
+    <div id="leftBar" onClick={() => {
+      
+        const leftBar = document.getElementById("leftBar");
+        leftBar.classList.toggle("open");
+    }}>
+        {links.map((link) => (
+          <Link key={link.name} to={link.path}>
+            {link.name}
+          </Link>
+        ))}
+        <button>sair</button>
+    </div>
   </header>
 );
 }

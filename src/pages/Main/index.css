@@ -74,40 +74,42 @@
     animation: apper2 1s linear;
 }
 
-
 #main > article:nth-of-type(2){
     display: flex;
     justify-content: center;
-    overflow: auto;
-    gap: 100px;
-    padding:40px;
+    align-items: center;
+    gap: 120px;
+    padding:0px 40px;
+    overflow: hidden;
 }
 
 #main > article:nth-of-type(2)  aside{
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-top: 40px;
-    text-align: justify;
+    padding-top: 10px;
+    text-align: start;
+    justify-content: space-between;
 }
 #main > article:nth-of-type(2)  img{
-    width: 350px;
-    height: 350px;
+    width: 450px;
+    height: 450px;
 }
 
 #main > article:nth-of-type(2)  h1{
-    font-size: 40pt;
+    font-size: 25pt;
     color: var(--pink);
 }
 
 #main > article:nth-of-type(2)  button{
     background-color: var(--pink);
-    width: 140px;
+    width: 50%;
     border: none;
-    height: 45px;
+    height: 40px;
     border-radius: 5px;
-    color: var(--white);
+    color: var(--white)
+
 }
 
 #main > article:nth-of-type(3) {
@@ -225,4 +227,160 @@
 #main > article:last-of-type aside figure figcaption p{
     word-wrap: break-word;
     text-align: justify;
+}
+
+
+/*
+Telefone
+*/
+@media screen and (max-width : 720px) {
+
+#main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+#main > article:first-of-type{
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#main > article:first-of-type h1{
+    font-size: 30pt;
+    color: var(--white);
+}
+
+#main > article:first-of-type aside button{
+    background-color: var(--pink);
+    width: 50%;
+}
+#main > article:first-of-type > button{
+    top: 50%;
+    font-size: 20pt;
+}
+
+#main > article:first-of-type span{
+    font-size: 15pt;
+    color: var(--pink);
+}
+
+#main > article:first-of-type aside:first-of-type{
+    padding-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#main > article:first-of-type aside:last-of-type{
+    width:100%;
+}
+
+#main > article:first-of-type img{
+    width: 250px;
+    margin-top: 20px;
+}
+
+#main > article:nth-of-type(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 10px;
+    padding:0px 40px;
+    overflow: hidden;
+}
+
+#main > article:nth-of-type(2)  aside{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 10px;
+    text-align: start;
+    align-items: center;
+}
+#main > article:nth-of-type(2)  img{
+    width: 250px;
+    height: 250px;
+}
+
+#main > article:nth-of-type(2)  h1{
+    font-size: 25pt;
+    color: var(--pink);
+}
+
+#main > article:nth-of-type(2)  button{
+    background-color: var(--pink);
+    width: 100%;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--white);
+}
+#main > article:nth-of-type(3) {
+    display: flex;
+    gap: 10px;
+    transition: all .5s linear;
+    padding-top: 50px;
+    animation: inout 25s linear infinite;
+    width: 100%;
+    overflow: auto;
+}
+
+#main > article:nth-of-type(3)  img{
+    display: none;
+}
+#main > article:nth-of-type(3)  p{
+    height: 30px;
+}
+
+
+#main > article:last-of-type  h1{
+    font-size: 25pt;
+    text-align: center;
+}
+#main > article:last-of-type aside{
+        grid-template-columns: 1fr;
+    }
+    #main > article:last-of-type aside figure {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        border: solid 1px var(--pink);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: relative;
+        height: 450px;  
+        overflow: hidden;
+    }
+    #main > article:last-of-type aside figure figcaption{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+        height: 100%;
+        padding: 10px;
+        justify-content: space-between;
+    }
+     #main > article:last-of-type aside figure figcaption > p{
+        margin-bottom: 70px;
+     }
+     #main > article:last-of-type aside figure figcaption *{ 
+        overflow: hidden;
+    }
+
 }

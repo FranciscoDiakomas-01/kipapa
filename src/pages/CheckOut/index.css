@@ -83,3 +83,26 @@
     flex-direction: column;
     gap: 20px;
 }
+
+
+/*Telefone*/
+@media screen and (max-width : 720px) {
+#checkout > article:first-of-type{
+    font-size: 30pt;
+    height: 200px;
+}
+
+#checkout > article:last-of-type form{
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 100%;
+}
+
+#checkout > article:last-of-type{
+    gap: 40px;
+    padding: 20px;
+}
+#checkout > article:last-of-type > div{
+    width: 100%;
+}
+}

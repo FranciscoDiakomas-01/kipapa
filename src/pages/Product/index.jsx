@@ -88,7 +88,7 @@ export default function Product() {
                       <div>
                         <p>
                           <strong>Descrição: </strong>
-                          {prod.description?.toString().slice(0, 50)}...
+                          {prod.description?.toString().slice(0, 50)}
                         </p>
                       </div>
                     </figcaption>
@@ -135,7 +135,7 @@ export default function Product() {
                     <div>
                       <p>
                         <strong>Descrição: </strong>
-                        {prod.description?.toString().slice(0, 50)}...
+                        {prod.description?.toString().slice(0, 50)}
                       </p>
                     </div>
                   </figcaption>

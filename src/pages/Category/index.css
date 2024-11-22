@@ -121,3 +121,46 @@
     border-radius: 5px;
     width: 140px;
 }
+
+
+
+
+/*Telefone*/
+@media screen and (max-width : 720px) {
+    #category > article:last-of-type aside{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+
+    }
+#category > article:last-of-type figure span{
+    width: 80%;
+}
+    
+    #product > form select{
+        height: 45px;
+        width: 90%;
+        border: solid var(--pink) 1px;
+        outline: none;
+        padding-left: 5px;
+        font-size: 12pt;
+        transition: all .5s linear;
+    }
+
+#category > article:last-of-type img{
+    height: 100px;
+    width: 100px;
+}
+
+#category > article:last-of-type figure > div button{
+    width: 100px;
+}
+
+
+#category > article:first-of-type{
+    font-size: 40pt;
+    height: 250px;
+}
+}

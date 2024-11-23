@@ -2,6 +2,7 @@ import "./index.css";
 export default function Acount() {
   return (
     <section id="acount">
+        <h1>Dados da Minha Conta</h1>
           <form>
             <div>
               <label htmlFor="name">Nome</label>

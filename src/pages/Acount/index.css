@@ -2,7 +2,7 @@
 
 #acount{
     width: 100%;
-    min-height: 100dvh;
+    min-height: 80dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,7 +34,7 @@
 #acount > form{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 50%;
+    width: 70%;
     place-items: center;
     gap: 40px;
 }
@@ -51,12 +51,25 @@
 }
 
 
-
+#acount > h1{
+    color: var(--pink);
+}
 /*Telefone*/
 @media screen and (max-width : 720px) {
 #acount > form{
     display: grid;
     grid-template-columns: 1fr;
     width: 90%;
+}
+
+#acount{
+    width: 100%;
+    padding-top: 100px;
+    min-height: 80dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-direction: column;
 }
 }

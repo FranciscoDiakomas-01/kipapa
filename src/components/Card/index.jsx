@@ -2,7 +2,7 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import { getbuget, getTotalProduct  , addProduct , getAllProduct , removeProduct , CanChekout} from "../../services/card";
 import { toast } from "react-toastify";
-import { FaSync } from "react-icons/fa";
+import { FaSync , FaShoppingBag} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 export default function Card() {
   const navigate = useNavigate()
@@ -64,7 +64,7 @@ export default function Card() {
             ))}
           </>
         ) : (
-          <h1>Nenhum Item</h1>
+          <h1> <FaShoppingBag/> Carrinha Vazia</h1>
         )}
       </aside>
       <div>
@@ -78,8 +78,18 @@ export default function Card() {
             navigate("/checkout")
             return
           } else {
+            if(localStorage.getItem("token") == undefined && localStorage.getItem("token") == null) {
+              toast.info("Inicie sessão");
+              setTimeout(() => {
+                navigate("/login");
+              }, 1000);
+              return;
+            }
             toast.warn("A sua Carrinha Está Vazia!")
-            navigate("/product");
+            setTimeout(() => {
+              
+              navigate("/product");
+            },1000)
             return
           }
         }}>Finalizar a Compra </button>

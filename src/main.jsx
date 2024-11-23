@@ -10,6 +10,7 @@ import Acount from './pages/Acount/index.jsx';
 import './index.css'
 import Shop from './pages/Shop/index.jsx';
 import CheckOut from './pages/CheckOut/index.jsx';
+import Login from './pages/login/index.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
         element: <Acount />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 createRoot(document.getElementById("root")).render(

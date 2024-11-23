@@ -10,6 +10,8 @@
     overflow-y: scroll;
     width: 0%;
     transition: all .5s linear;
+    padding: 0;
+    width: 0;
 }
 
 #card.open{
@@ -30,7 +32,7 @@
     justify-content: space-between;
     color: black;
     background-color: var(--white);
-    padding: 10px;
+    padding: 20px;
     font-weight: bold;
     flex-direction: column;
     gap: 10px;
@@ -38,7 +40,7 @@
 
 #card  > button:first-of-type{
     position: absolute;
-    top: 0px;
+    top: 10px;
     right: 0px;
     width: 30px;
     background-color: transparent;
@@ -46,12 +48,13 @@
     font-size: 14pt;
 }
 #card  > div{
-    width: 450px;
+    width: 100%;
     position: absolute;
     bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 0px;
+    width: 100%;
 }
 #card  > div > button{
     width: 100%;
@@ -119,24 +122,24 @@
 
 /*Telefone*/
 @media screen and (max-width : 720px) {
- #card.open{
-    width:100%;
+ #card{
     opacity: 1;
+    height: 91%;
     
 }
-#card  > aside >  div button{
-    width: 50px;
-    height: 35px;
-}
-
 #card  > div > button{
-    margin-bottom: -9px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 70px;
 }
 #card  > aside >  div img{
     height: 100px;
     width: 120px;
+}
+#card.open{
+    width:100%;
+    opacity: 1;
+    height: 91%;
 }
 }

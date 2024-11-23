@@ -102,7 +102,12 @@ export function CanChekout() {
   
   try {
     const produtos = JSON.parse(localStorage.getItem("card"));
-    return produtos?.length == 0 ? false : true
+
+    return produtos?.length != 0 &&
+      localStorage.getItem("token") != undefined &&
+      localStorage.getItem("token") != null
+      ? true
+      : false;
   } catch (error) {
     return false;
   }

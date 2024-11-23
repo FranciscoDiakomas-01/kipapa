@@ -4,32 +4,7 @@
     gap: 40px;
     width: 100%;
     margin-top: 80px;
-}
-
-@keyframes apper {
-
-    from{
-        opacity: 0;
-        translate: -100vw 0;
-    }
-    to{
-        opacity: 1;
-        translate: 0 0;
-    }
-    
-}
-
-@keyframes apper2 {
-
-    from{
-        opacity: 0;
-        translate: 100vw 0;
-    }
-    to{
-        opacity: 1;
-        translate: 0 0;
-    }
-    
+    min-height: 100dvh;
 }
 
 #category > article:first-of-type h1{
@@ -66,6 +41,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 40px;
+    padding: 50px 20px;
 }
 
 #category > article:last-of-type img{
@@ -136,7 +112,7 @@
 
     }
 #category > article:last-of-type figure span{
-    width: 80%;
+    width: 100%;
 }
     
     #product > form select{
@@ -155,7 +131,7 @@
 }
 
 #category > article:last-of-type figure > div button{
-    width: 100px;
+    width: 90px;
 }
 
 

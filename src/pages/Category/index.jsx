@@ -32,6 +32,27 @@ export default function Category() {
         {
           title: "Hambuguer",
           description: "Hambuguer de Frango com molho picante",
+          total: 1100,
+          id: crypto.randomUUID(),
+          image_url: image,
+        },
+        {
+          title: "Hambuguer",
+          description: "Hambuguer de Frango com molho picante",
+          total: 3150,
+          id: crypto.randomUUID(),
+          image_url: image,
+        },
+        {
+          title: "Hambuguer",
+          description: "Hambuguer de Frango com molho picante",
+          total: 4000,
+          id: crypto.randomUUID(),
+          image_url: image,
+        },
+        {
+          title: "Hambuguer",
+          description: "Hambuguer de Frango com molho picante",
           total: 40002,
           id: crypto.randomUUID(),
           image_url: image,

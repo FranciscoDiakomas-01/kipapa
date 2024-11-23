@@ -10,6 +10,8 @@
     color: #ffff;
     z-index: 99;
     height: 11%;
+    align-items: center;
+    display: flex;
 }
 
 
@@ -44,7 +46,7 @@
 #header nav a {
     color: #ffff;
 }
-#header nav >svg{
+#header nav  svg:last-of-type{
     display: none;
 }
 #header > nav > div button{
@@ -67,7 +69,13 @@
 }
 /*Telefone*/
 @media screen and (max-width : 720px) {
-#header nav >svg{
+
+    #header img{
+    height: 50px;
+    width: 50ppx;
+    border-radius: 50%;
+}
+#header nav > div svg:last-of-type{
     display: flex;
     font-size: 18pt;
 }
@@ -111,10 +119,23 @@
     height: 40px;
     border-radius: 4px;
 }
+
+    
+    #header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    padding: 10px 20px;
+    background-color: var(--pink);
+    color: #ffff;
+    z-index: 99;
+    height: 9%;
+}
 }
 
 #header > div.open{
-    height: 89%;
+    height: 91%;
     padding-top: 40px;
     opacity: 1;
 }

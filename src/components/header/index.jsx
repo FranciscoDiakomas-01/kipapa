@@ -48,39 +48,55 @@ return (
         ))}
       </ol>
       <div>
-        <FaUser onClick={() => {
-          nav('acount')
-        }}/>
+        {localStorage.getItem("token") && (
+          <FaUser
+            onClick={() => {
+              nav("acount");
+            }}
+          />
+        )}
         <FaShoppingCart
           onClick={() => {
             const card = document.getElementById("card");
             card.classList.toggle("open");
           }}
         />
-        <sup>
-          {total}
-        </sup>
-        <button>sair</button>
+        <sup>{total}</sup>
+        <button
+          onClick={() => {
+            nav("/login");
+          }}
+        >
+          {localStorage.getItem("token") ? "Sair" : "Entrar"}
+        </button>
+        <FaBars
+          onClick={() => {
+            const leftBar = document.getElementById("leftBar");
+            leftBar.classList.toggle("open");
+          }}
+        />
       </div>
-      <FaBars onClick={() => {
-        const leftBar = document.getElementById("leftBar");
-        leftBar.classList.toggle('open')
-        
-      }}/>
     </nav>
 
-    
-    <div id="leftBar" onClick={() => {
-      
+    <div
+      id="leftBar"
+      onClick={() => {
         const leftBar = document.getElementById("leftBar");
         leftBar.classList.toggle("open");
-    }}>
-        {links.map((link) => (
-          <Link key={link.name} to={link.path}>
-            {link.name}
-          </Link>
-        ))}
-        <button>sair</button>
+      }}
+    >
+      {links.map((link) => (
+        <Link key={link.name} to={link.path}>
+          {link.name}
+        </Link>
+      ))}
+      <button
+        onClick={() => {
+          nav("/login");
+        }}
+      >
+        {localStorage.getItem("token") ? "Sair" : "Entrar"}
+      </button>
     </div>
   </header>
 );

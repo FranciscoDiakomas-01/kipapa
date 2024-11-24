@@ -6,23 +6,24 @@
     flex-direction: column;
     gap: 40px;
     padding-top: 80px;
+    min-height: 100dvh;
 }
 #product > * {
     padding: 0 20px;
 }
 
 #product > button{
-    display: flex;
-    justify-self: center;
-    align-self: center;
     border: none;
-    background-color: var(--pink);
+    background-color: var(--green);
     color: var(--white);
     height: 40px;
-    align-items: center;
     border-radius: 4px;
     gap: 10px;
-
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    width: 30%;
+    align-self: center;
 }
 #product > div{
     display: flex;
@@ -287,5 +288,17 @@
     width: 90%;
     background-color: var(--green);
 
+}
+}
+
+/*Tablet*/
+@media screen and (max-width : 1024px) and (min-width : 719px) {
+    
+    #product  > aside{
+    width: 100%;
+    gap: 20px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 }

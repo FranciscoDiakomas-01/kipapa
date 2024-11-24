@@ -98,4 +98,16 @@
     height: 200px;
     font-size: 30pt;
 }
+
+#contact{
+    padding-top: 60px;
+}
+}
+
+
+/*Tablet*/
+@media screen and (max-width : 1024px) and (min-width : 719px) {
+    #contact > article:last-of-type form{
+        width: 100%;
+    }
 }

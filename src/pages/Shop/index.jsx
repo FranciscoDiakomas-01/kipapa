@@ -53,52 +53,54 @@ export default function Shop() {
           <Loader />
         ) : (
           <>
-            {shops.map((item, index) => (
-              <figure key={index}>
-                <span>#{item.id}</span>
-                <p> Data : {item.date}</p>
-                <p>Horário : {item.hour}</p>
-                <stron>Orçamento : {item.buget}kz</stron>
-                <p>Total Produtos : {item.totalProdut}</p>
-                {item.status == 1 ? (
-                  <p
-                    style={{
-                      backgroundColor: "#1e9f79",
-                      color: "#02ffb3",
-                    }}
-                  >
-                    Conlcuído
-                  </p>
-                ) : item.status == 2 ? (
-                  <p
-                    style={{
-                      backgroundColor: "#ddbe0f",
-                      color: "white",
-                    }}
-                  >
-                    Em Produção
-                  </p>
-                ) : item.status == 3 ? (
-                  <p
-                    style={{
-                      backgroundColor: "#1375a9",
-                      color: "white",
-                    }}
-                  >
-                    Á caminho
-                  </p>
-                ) : (
-                  <p
-                    style={{
-                      backgroundColor: "red",
-                      color: "white",
-                    }}
-                  >
-                    Cancelado
-                  </p>
-                )}
-              </figure>
-            ))}
+            <aside>
+              {shops.map((item, index) => (
+                <figure key={index}>
+                  <span>#{item.id}</span>
+                  <p> Data : {item.date}</p>
+                  <p>Horário : {item.hour}</p>
+                  <stron>Orçamento : {item.buget}kz</stron>
+                  <p>Total Produtos : {item.totalProdut}</p>
+                  {item.status == 1 ? (
+                    <p
+                      style={{
+                        backgroundColor: "#1e9f79",
+                        color: "#02ffb3",
+                      }}
+                    >
+                      Conlcuído
+                    </p>
+                  ) : item.status == 2 ? (
+                    <p
+                      style={{
+                        backgroundColor: "#ddbe0f",
+                        color: "white",
+                      }}
+                    >
+                      Em Produção
+                    </p>
+                  ) : item.status == 3 ? (
+                    <p
+                      style={{
+                        backgroundColor: "#1375a9",
+                        color: "white",
+                      }}
+                    >
+                      Á caminho
+                    </p>
+                  ) : (
+                    <p
+                      style={{
+                        backgroundColor: "red",
+                        color: "white",
+                      }}
+                    >
+                      Cancelado
+                    </p>
+                  )}
+                </figure>
+              ))}
+            </aside>
             <table>
               <thead>
                 <tr>

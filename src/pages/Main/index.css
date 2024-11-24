@@ -95,6 +95,8 @@
 #main > article:nth-of-type(2)  img{
     width: 450px;
     height: 450px;
+    border: double var(--pink) 8px;
+    border-radius: 50%;
 }
 
 #main > article:nth-of-type(2)  h1{
@@ -128,6 +130,7 @@
 #main > article:nth-of-type(3)  img{
     height: 100px;
     width: 100px;
+
 }
 #main > article:nth-of-type(3)  p{
     height: 30px;
@@ -151,7 +154,7 @@
 /*
 Telefone
 */
-@media screen and (max-width : 720px) {
+@media screen and (max-width : 1024px) {
 
 #main{
     width: 100%;
@@ -261,5 +264,20 @@ Telefone
 }
 #main > article:nth-of-type(3)  p{
     height: 30px;
+}
+}
+
+
+/*Tablet*/
+@media screen and (max-width : 1024px) and (min-width : 719px) {
+    #main > article:nth-of-type(2)  img ,
+    #main > article:first-of-type img{
+    width: 350px;
+    height: 350px;
+    margin-top: 40px;
+}
+
+#main > article:nth-of-type(3)  img{
+    display: flex;
 }
 }

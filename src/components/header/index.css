@@ -68,7 +68,7 @@
     transition: all .5s linear;
 }
 /*Telefone*/
-@media screen and (max-width : 720px) {
+@media screen and (max-width : 1024px) {
 
     #header img{
     height: 50px;
@@ -138,4 +138,17 @@
     height: 91%;
     padding-top: 40px;
     opacity: 1;
+}
+
+@media screen and (max-width : 1024px) and (min-width : 719px) {
+#header{
+    height: 8%;
+    
+}
+
+#header > div.open{
+    height: 92%;
+    padding-top: 40px;
+    opacity: 1;
+}
 }

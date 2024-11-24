@@ -6,6 +6,7 @@
     flex-direction: column;
     gap: 40px;
     margin-top: 80px;
+    min-height: 100dvh;
 }
 #shops > * {
     padding: 0 50px;
@@ -67,7 +68,7 @@
     background-color: var(--gray2);
 }
 #shops > article:last-child table tbody td:last-of-type{
-    width: 130px;
+    width: 100px;
 }
 
 #shops > article:last-child table tbody td p{
@@ -107,13 +108,16 @@
         display: none;
     }
 /*Telefone*/
-@media screen and (max-width : 720px) {
+@media screen and (max-width : 1024px) {
 
+#shops{
+    margin-top: 60px;
+}
     #shops > article:last-child table{
         display: none;
     }
     #shops > article:first-of-type{
-    font-size: 25pt;
+    font-size: 23pt;
     background-size: contain;
     height: 200px;
 }
@@ -136,4 +140,30 @@
         justify-content: center;
         border-radius: 4px;
     }
+
+        
+    #shops aside{
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 40px 20px;
+        place-items: center;
+}
+}
+
+
+/*Tablet*/
+@media screen and (max-width : 1024px) and (min-width : 719px) {
+#shops aside{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 40px 20px;
+        place-items: center;
+}
+
+#shops > article:first-of-type{
+    height: 400px;
+    font-size: 35pt;
+}
 }

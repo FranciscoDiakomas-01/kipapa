@@ -23,7 +23,9 @@ export default function Card() {
     setProduct(getAllProduct());
   }, [reload]);
   return (
-    <article id="card">
+    <article id="card" onMouseLeave={() => {
+      document.getElementById("card").classList.remove("open");
+    }}>
       <button
         onClick={() => {
           setReload((prev) => !prev);

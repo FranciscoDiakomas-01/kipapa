@@ -87,6 +87,13 @@
 
 /*Telefone*/
 @media screen and (max-width : 720px) {
+
+    
+#checkout{
+    padding-top: 60px;
+
+}
+
 #checkout > article:first-of-type{
     font-size: 30pt;
     height: 200px;
@@ -105,4 +112,14 @@
 #checkout > article:last-of-type > div{
     width: 100%;
 }
+}
+
+/*Tablet*/
+@media screen and (max-width : 1024px) and (min-width : 719px) {
+    #checkout > article:last-of-type form{
+        width: 100%;
+    }
+    #checkout > article:last-of-type > div{
+        width: 100%;
+    }
 }

@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 40px;
     width: 100%;
-    margin-top: 80px;
+    padding-top: 80px;
     min-height: 100dvh;
 }
 
@@ -103,6 +103,10 @@
 
 /*Telefone*/
 @media screen and (max-width : 720px) {
+
+    #category{
+    padding-top: 60px;
+}
     #category > article:last-of-type aside{
         width: 100%;
         display: flex;
@@ -139,4 +143,11 @@
     font-size: 40pt;
     height: 250px;
 }
+}
+
+/*Tablet*/
+@media screen and (max-width : 1024px) and (min-width : 719px) {
+    #category > article:last-of-type aside{
+        grid-template-columns: 1fr 1fr;
+    }
 }

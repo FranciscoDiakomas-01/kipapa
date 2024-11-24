@@ -20,7 +20,35 @@ export default function Product() {
             oldprice: 1500,
             promotional: true,
           },
-          
+          {
+            name: "Hambuguer",
+            description: "Hambuguer de Frango com molho picante",
+            price: 1000,
+            id: crypto.randomUUID(),
+            image_url: image,
+            oldprice: 1500,
+            promotional: true,
+          },
+
+          {
+            name: "Pizza",
+            description: "Hambuguer de Frango com molho picante",
+            price: 2000,
+            id: crypto.randomUUID(),
+            image_url: image,
+            oldprice: 1500,
+            promotional: true,
+          },
+          {
+            name: "Hambuguer",
+            description: "Hambuguer de Frango com molho picante",
+            price: 1000,
+            id: crypto.randomUUID(),
+            image_url: image,
+            oldprice: 1500,
+            promotional: true,
+          },
+
           {
             name: "Pizza",
             description: "Hambuguer de Frango com molho picante",
@@ -160,7 +188,7 @@ export default function Product() {
               ))}
             </aside>
             <button>
-              <p>Ver Mais</p>
+              Ver Mais
             </button>
           </>
         )}

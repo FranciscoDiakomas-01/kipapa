@@ -42,7 +42,7 @@ footer{
   grid-template-columns: 1fr 1.5fr 1fr 1fr;
   gap: 50px;
   justify-content: space-between;
-  background-color: var(--pink);
+    background-color : #3c3c3c;
   padding: 20px;
   color: #ffff;
   margin-top: 80px;
@@ -162,5 +162,14 @@ Telefone
   footer  button{
     border-radius:6px;
     width: 130px;
+  }
+}
+
+
+/*Tablet*/
+@media screen and (max-width : 1024px) and (min-width : 719px) {
+  footer{
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
   }
 }

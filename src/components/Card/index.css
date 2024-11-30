@@ -22,7 +22,7 @@
 #card  > aside{
     width: 100%;
     padding: 10px;
-    padding-bottom: 80px;
+    padding-bottom: 180px;
     margin-top: 15px;
     transition: all .5s linear;
 }

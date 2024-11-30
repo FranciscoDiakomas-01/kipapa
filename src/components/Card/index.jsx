@@ -23,9 +23,12 @@ export default function Card() {
     setProduct(getAllProduct());
   }, [reload]);
   return (
-    <article id="card" onMouseLeave={() => {
-      document.getElementById("card").classList.remove("open");
-    }}>
+    <article
+      id="card"
+      onMouseLeave={() => {
+        document.getElementById("card").classList.remove("open");
+      }}
+    >
       <button
         onClick={() => {
           setReload((prev) => !prev);
@@ -38,7 +41,7 @@ export default function Card() {
           <>
             {product?.map((pr, index) => (
               <div key={index}>
-                <img src={pr?.image} loading="lazy" />
+                <img src={pr?.image_url} loading="lazy" />
                 <span>
                   <strong>Nome : {pr?.name}</strong>
                   <i>Preço : {Number(pr?.price).toLocaleString("pt")}kz</i>
@@ -66,7 +69,10 @@ export default function Card() {
             ))}
           </>
         ) : (
-          <h1> <FaShoppingBag/> Carrinha Vazia</h1>
+          <h1>
+            {" "}
+            <FaShoppingBag /> Carrinha Vazia
+          </h1>
         )}
       </aside>
       <div>
@@ -74,27 +80,33 @@ export default function Card() {
           <div>Total Produtos : {totalPro}</div>
           <div>Total Orçamento : {buget}kz</div>
         </span>
-        <button onClick={() => {
-          if (CanChekout()) {
-            document.getElementById('card').classList.remove('open')
-            navigate("/checkout")
-            return
-          } else {
-            if(localStorage.getItem("token") == undefined && localStorage.getItem("token") == null) {
-              toast.info("Inicie sessão");
+        <button
+          onClick={() => {
+            if (CanChekout()) {
+              document.getElementById("card").classList.remove("open");
+              navigate("/checkout");
+              return;
+            } else {
+              if (
+                localStorage.getItem("token") == undefined &&
+                localStorage.getItem("token") == null
+              ) {
+                toast.info("Inicie sessão");
+                setTimeout(() => {
+                  navigate("/login");
+                }, 1000);
+                return;
+              }
+              toast.warn("A sua Carrinha Está Vazia!");
               setTimeout(() => {
-                navigate("/login");
+                navigate("/product");
               }, 1000);
               return;
             }
-            toast.warn("A sua Carrinha Está Vazia!")
-            setTimeout(() => {
-              
-              navigate("/product");
-            },1000)
-            return
-          }
-        }}>Finalizar a Compra </button>
+          }}
+        >
+          Finalizar a Compra{" "}
+        </button>
       </div>
     </article>
   );

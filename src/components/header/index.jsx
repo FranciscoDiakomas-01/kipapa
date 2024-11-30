@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { getTotalProduct } from "../../services/card";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Header() {
   const nav = useNavigate();
   const [total, setTotal] = useState(getTotalProduct());

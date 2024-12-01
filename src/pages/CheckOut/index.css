@@ -40,12 +40,23 @@
     padding: 80px;
 }
 
+
 #checkout > article:last-of-type form{
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 40px;
+    width: 70%;
+    transition: all .5s linear;
+    animation: apper 1s linear;
+}
+
+#checkout > article:last-of-type form > span{
     display: grid;
     grid-template-columns: 1fr 1fr;
     flex-direction: column;
     gap: 30px;
-    width: 60%;
+    width: 100%;
     transition: all .5s linear;
     animation: apper 1s linear;
 }
@@ -53,7 +64,7 @@
 #checkout > article:last-of-type > div{
     display: flex;
     gap: 20px;
-    width: 60%;
+    width: 70%;
     justify-content: space-between;
 }
 #checkout > article:last-of-type h1{
@@ -84,7 +95,12 @@
     gap: 20px;
 }
 
-
+#checkout > article:last-of-type form > div{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
 /*Telefone*/
 @media screen and (max-width : 720px) {
 

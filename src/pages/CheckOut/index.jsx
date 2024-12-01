@@ -1,13 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./index.css";
 import { useState, useEffect } from "react";
 import { CanChekout } from "../../services/card";
 import { useNavigate } from "react-router-dom";
-import { checkout } from "../../services/checkout";
+import {createOrder } from "../../services/checkout";
+import { getClientData } from "../../services/acount";
+import { getAllPayForm } from "../../services/pay";
+import { toast } from "react-toastify";
 export default function CheckOut() {
-
     const [checkoutDetails, setCheckoutDetails] = useState({
-      street: "",
-      Nhouse: "",
+      cep: "",
       qoute: "",
       city: "",
       methodPay : ''
@@ -16,30 +18,30 @@ export default function CheckOut() {
   const nav = useNavigate();
   const [show, setShow] = useState(false);
   useEffect(() => {
+     if (localStorage.getItem("token") == undefined || localStorage.getItem("token") == null) {
+      nav("/login")
+    }
     if (CanChekout()) {
       setShow(true);
-      setPayWay([
-        {
-          id: 1,
-          name: "PayPal",
-        },
-        {
-          id: 2,
-          name: "Cash",
-        },
-        {
-          id: 3,
-          name: "Cartão de Crédito",
-        },
-        {
-          id: 4,
-          name: "Cartão de Débito",
-        },
-      ]);
+      async function getClienAdress() {
+        const payForm = await getAllPayForm()
+        setPayWay(payForm?.data)
+        const adress = await getClientData();
+        if (adress?.adress?.cep  && adress?.adress?.city && adress?.adress?.qoute) {
+          setCheckoutDetails((prev) => ({
+            ...prev,
+            cep: adress?.adress?.cep,
+            city: adress?.adress?.city,
+            qoute: adress?.adress?.qoute,
+          }));
+          return;
+        } 
+      }
+      getClienAdress();
     } else {
       nav("/product");
     }
-  }, [nav]);
+  }, []);
   return (
     <>
       {show && (
@@ -51,97 +53,107 @@ export default function CheckOut() {
           <article>
             <h1>Dados da Compra</h1>
             <form>
+              <span>
+                <div>
+                  <label htmlFor="city">Cidade</label>
+                  <input
+                    autoFocus
+                    name="city"
+                    id="city"
+                    value={checkoutDetails.city}
+                    type="text"
+                    required
+                    placeholder="Entre com o nome do Município"
+                    onChange={(e) => {
+                      setCheckoutDetails((prev) => ({
+                        ...prev,
+                        city: e.target.value,
+                      }));
+                    }}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="qoute">Bairo</label>
+                  <input
+                    type="text"
+                    id="qoute"
+                    required
+                    placeholder="Entre com o nome do Bairro"
+                    value={checkoutDetails.qoute}
+                    onChange={(e) => {
+                      setCheckoutDetails((prev) => ({
+                        ...prev,
+                        qoute: e.target.value,
+                      }));
+                    }}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="street">Cep</label>
+                  <input
+                    type="text"
+                    id="street"
+                    required
+                    placeholder="Entre com o nome ou número da rua"
+                    value={checkoutDetails.cep}
+                    onChange={(e) => {
+                      setCheckoutDetails((prev) => ({
+                        ...prev,
+                        street: e.target.value,
+                      }));
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label>Forma de Pagamento</label>
+                  <select
+                    required
+                    onChange={(e) => {
+                      setCheckoutDetails((prev) => ({
+                        ...prev,
+                        methodPay: e.target[e.target.selectedIndex].textContent,
+                      }));
+                    }}
+                  >
+                    <option>Selecione uma forma de Pagamento</option>
+                    {payWay.map((pay, index) => (
+                      <option key={index} value={pay.id}>
+                        {pay?.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </span>
+
               <div>
-                <label htmlFor="city">Município</label>
-                <input
-                  autoFocus
-                  name="city"
-                  id="city"
-                  type="text"
-                  placeholder="Entre com o nome do Município"
-                  onChange={(e) => {
-                    setCheckoutDetails((prev) => ({
-                      ...prev,
-                      city: e.target.value,
-                    }));
-                  }}
-                />
-              </div>
-              <div>
-                <label htmlFor="qoute" >Bairo</label>
-                <input
-                  type="text"
-                  id="qoute"
-                  placeholder="Entre com o nome do Bairro"
-                  onChange={(e) => {
-                    setCheckoutDetails((prev) => ({
-                      ...prev,
-                      qoute: e.target.value,
-                    }));
-                  }}
-                />
-              </div>
-              <div>
-                <label htmlFor="street" >Rua</label>
-                <input
-                  type="text"
-                  id="street"
-                  placeholder="Entre com o nome ou número da rua"
-                  onChange={(e) => {
-                    setCheckoutDetails((prev) => ({
-                      ...prev,
-                      street: e.target.value,
-                    }));
-                  }}
-                />
-              </div>
-              <div>
-                <label htmlFor="nhome">Nº Casa</label>
-                <input
-                  type="number"
-                  id="nhome"
-                  placeholder="Entre com o número da casa"
-                  onChange={(e) => {
-                    setCheckoutDetails((prev) => ({
-                      ...prev,
-                      Nhouse: e.target.value,
-                    }));
-                  }}
-                />
-              </div>
-              <div>
-                <label>Forma de Pagamento</label>
-                <select
-                  onChange={(e) => {
-                    setCheckoutDetails((prev) => ({
-                      ...prev,
-                      methodPay: e.target.value,
-                    }));
+                <button
+                  onClick={async (e) => {
+                    e.preventDefault()
+                    const response = await createOrder(checkoutDetails);
+                    if (response) {
+                      toast.success("Peido enviado com sucesso!");
+                      localStorage.setItem("card", []);
+                      nav("/");
+                      location.reload();
+                      return;
+                    } else {
+                      toast.error("Preencha todos os Campos");
+                      return;
+                    }
                   }}
                 >
-                  <option>Selecione uma forma de Pagamento</option>
-                  {payWay.map((pay, index) => (
-                    <option key={index} value={pay.id}>
-                      {pay?.name}
-                    </option>
-                  ))}
-                </select>
+                  Finalizar
+                </button>
+                <button
+                  onClick={() => {
+                    nav("/shop");
+                  }}
+                >
+                  Minhas Comprar
+                </button>
               </div>
             </form>
-
-            <div>
-              <button
-                onClick={() => {
-                  checkout(checkoutDetails);
-                }}
-              >
-                Finalizar
-              </button>
-              <button onClick={() => {
-                
-                nav("/shop");
-              }}>Minhas Comprar</button>
-            </div>
           </article>
         </section>
       )}

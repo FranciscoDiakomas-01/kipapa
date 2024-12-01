@@ -1,13 +1,12 @@
 import "./index.css";
 import { useState, useEffect } from "react";
-import { getbuget, getTotalProduct  , addProduct , getAllProduct , removeProduct , CanChekout} from "../../services/card";
+import { getbuget , addProduct , getAllProduct , removeProduct , CanChekout} from "../../services/card";
 import { toast } from "react-toastify";
 import { FaSync , FaShoppingBag} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 export default function Card() {
   const navigate = useNavigate()
   const [buget, setBuget] = useState(0);
-  const [totalPro, setTotalProd] = useState(0);
   const [product, setProduct] = useState([]);
   const [reload , setReload] = useState(false)
   useEffect(() => {
@@ -19,7 +18,6 @@ export default function Card() {
       localStorage.setItem("card", []);
     }
     setBuget(getbuget());
-    setTotalProd(getTotalProduct());
     setProduct(getAllProduct());
   }, [reload]);
   return (
@@ -76,37 +74,47 @@ export default function Card() {
         )}
       </aside>
       <div>
-        <span>
-          <div>Total Produtos : {totalPro}</div>
-          <div>Total Orçamento : {buget}kz</div>
-        </span>
-        <button
-          onClick={() => {
-            if (CanChekout()) {
+        {CanChekout() ? (
+          <>
+            <span>
+              <div>Total Orçamento : {buget}kz</div>
+            </span>
+            <button
+              onClick={() => {
+                if (CanChekout()) {
+                  document.getElementById("card").classList.remove("open");
+                  navigate("/checkout");
+                  return;
+                } else {
+                  if (
+                    localStorage.getItem("token") == undefined &&
+                    localStorage.getItem("token") == null
+                  ) {
+                    toast.info("Inicie sessão");
+                    setTimeout(() => {
+                      navigate("/login");
+                    }, 1000);
+                    return;
+                  }
+                  toast.warn("A sua Carrinha Está Vazia!");
+                  setTimeout(() => {
+                    navigate("/product");
+                  }, 1000);
+                  return;
+                }
+              }}
+            >
+              Finalizar a Compra{" "}
+            </button>
+          </>
+        ) : (
+            
+            <button onClick={() => {
               document.getElementById("card").classList.remove("open");
-              navigate("/checkout");
-              return;
-            } else {
-              if (
-                localStorage.getItem("token") == undefined &&
-                localStorage.getItem("token") == null
-              ) {
-                toast.info("Inicie sessão");
-                setTimeout(() => {
-                  navigate("/login");
-                }, 1000);
-                return;
-              }
-              toast.warn("A sua Carrinha Está Vazia!");
-              setTimeout(() => {
-                navigate("/product");
-              }, 1000);
-              return;
-            }
-          }}
-        >
-          Finalizar a Compra{" "}
-        </button>
+              navigate("/shop");
+            }}>Minhas Compras</button>
+        )
+      }
       </div>
     </article>
   );

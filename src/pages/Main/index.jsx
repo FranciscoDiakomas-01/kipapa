@@ -5,55 +5,34 @@ import image from '../../assets/bugger.jpg'
 import { FaArrowLeft, FaArrowRight, FaShoppingCart} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import bg2 from '../../assets/464745397_18022215284605621_2273606827089846785_n.jpg'
+import { getAllCategory } from "../../services/CategoryProduct";
 import { useState, useEffect } from 'react'
 export default function Main() {
-    const navigate = useNavigate()
-    const [Active , setActive] = useState(0)
-    const banners = [
-        {
-            text: "O SABOR DE VERDADE É NO KIPAPA",
-            cover: pizza,
-            slogan: "Delicie a sua vida no Kipapa",
-            bg: image,
-            
-        },
-        {
-            text: "DELICIE A SUA VIDA SEMPRE NO KIPAPA",
-            cover: hambuger,
-            slogan: "Kipapa prioriza a sua satisfação",
-            bg: bg2,
-        },
-    ];
-    const [categorys, setCategorys] = useState([]);
-    useEffect(() => {
-      setCategorys([
-        {
-          title: "Comidas",
-          id: crypto.randomUUID(),
-          image_url: pizza,
-        },
-        {
-          title: "Bebidas",
-          id: crypto.randomUUID(),
-          image_url: hambuger,
-        },
-        {
-          title: "Sumos",
-          id: crypto.randomUUID(),
-          image_url: pizza,
-        },
-        {
-          title: "Lanches",
-          id: crypto.randomUUID(),
-          image_url: hambuger,
-        },
-        {
-          title: "Pratos",
-          id: crypto.randomUUID(),
-          image_url: pizza,
-        },
-      ]);
-    }, []);
+      const navigate = useNavigate()
+      const [Active , setActive] = useState(0)
+      const banners = [
+          {
+              text: "O SABOR DE VERDADE É NO KIPAPA",
+              cover: pizza,
+              slogan: "Delicie a sua vida no Kipapa",
+              bg: image,
+              
+          },
+          {
+              text: "DELICIE A SUA VIDA SEMPRE NO KIPAPA",
+              cover: hambuger,
+              slogan: "Kipapa prioriza a sua satisfação",
+              bg: bg2,
+          },
+      ];
+      const [categorys, setCategorys] = useState([]);
+      useEffect(() => {
+        async function get() {
+          const respose = await getAllCategory(1, 0)
+          setCategorys(respose?.data)
+      }
+      get()
+      }, []);
     return (
       <section id="main">
         <article
@@ -122,14 +101,13 @@ export default function Main() {
           </aside>
         </article>
         <article>
-          {categorys.map((ct, index) => (
+          {Array.isArray(categorys) && categorys?.length > 0 && categorys.map((ct, index) => (
             <div key={index}>
-              <img src={ct.image_url} loading="lazy" />
+              <img src={ct.img_url} loading="lazy" />
               <p>{ct.title}</p>
             </div>
           ))}
         </article>
-    
       </section>
     );
 }

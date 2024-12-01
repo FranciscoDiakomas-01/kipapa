@@ -1,13 +1,12 @@
-
-
 #acount{
     width: 100%;
-    min-height: 80dvh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 70px;
     flex-direction: column;
+    padding-top: 100px;
 }
 #acount button{
     width: 200px;

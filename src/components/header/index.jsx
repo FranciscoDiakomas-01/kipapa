@@ -27,11 +27,7 @@ export default function Header() {
     {
       path: "/category",
       name: "Categorias",
-    },
-    {
-      path: "/contact",
-      name: "Contacto",
-    },
+    }
   ];
   return (
     <header id="header">
@@ -69,7 +65,11 @@ export default function Header() {
           />
           <sup>{total}</sup>
           <button
-            onClick={() => {
+            onClick={(e) => {
+              if (e.target.textContent == "Sair") {
+                localStorage.clear()
+                sessionStorage.clear()
+              }
               nav("/login");
             }}
           >

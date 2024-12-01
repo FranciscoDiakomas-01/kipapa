@@ -46,7 +46,7 @@
 }
 
 #shops > article:last-child table{
-    width: 90%;
+    width: 95%;
     transition: all .5s linear;
     animation: apper 1s linear;
 }
@@ -67,10 +67,9 @@
 #shops > article:last-child table tbody tr:nth-of-type(even){
     background-color: var(--gray2);
 }
-#shops > article:last-child table tbody td:last-of-type{
-    width: 100px;
+#shops > article:last-child table tbody td:last-of-type , #shops > article:last-child table tbody td:nth-of-type(5){
+    width: 150px;
 }
-
 #shops > article:last-child table tbody td p{
     display: flex;
     width: 100%;

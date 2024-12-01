@@ -1,0 +1,16 @@
+
+
+#notound{
+    background-image: linear-gradient(#0000009f , #000000a1) , url('../../assets/bugger.jpg');
+    height: 100dvh;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32pt;
+    color: #ffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,21 +1,49 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import './index.css'
 import { useState, useEffect } from 'react';
 import image from '../../assets/pngegg (9).png'
-import { FaShoppingCart , FaSearch} from 'react-icons/fa';
+import { FaShoppingCart , FaSearch , FaCircle} from 'react-icons/fa';
 import Loader from '../../components/loader';
 import { addProduct } from '../../services/card';
 import { toast } from 'react-toastify';
-import { getAllProduct } from '../../services/product';
+import { getAllProduct, getAllProductByCategory } from '../../services/product';
+import { getAllCategory } from '../../services/CategoryProduct';
 export default function Product() {
+
+  
   const [product, setProduct] = useState([])
   const [isloading, setIsloading] = useState(true)
   const [categorys, setCategorys] = useState([])
   const [page, setPage] = useState(1)
-  const [lasPage , setLaspage] = useState()
+  const [filter, setFilter] = useState(sessionStorage.getItem("ctId"));
+  const [reaload, setReload] = useState(false)
+  const [total , setTotal] = useState()
+  const [lasPage, setLaspage] = useState()
+  const [selectActegory, setSelectCategory] = useState(sessionStorage.getItem("ctitle"))
   useEffect(() => {
-      async function get() {
+    async function get() {
+      const respose1 = await getAllCategory(1, 0)
+      setCategorys(prev => respose1?.data)
+        if (filter != "all") {
+          //getbyCategory
+          const response = await getAllProductByCategory(page, 10, filter)
+          setTotal(response?.total)
+          if (page != 1) {
+            const newList = [...product];
+            response?.data?.forEach((pr) => {
+              newList.push(pr);
+            });
+            setProduct((prev) => newList);
+            setLaspage((prev) => response?.latPage);
+            return;
+          }
+          setProduct(prev => response?.data)
+          setLaspage((prev) => response?.latPage);
+          return
+        }
         const response = await getAllProduct(page, 10)
+          setTotal(response?.total);
         if (page != 1) {
           const newList = [...product]
           response?.data?.forEach(pr => {
@@ -32,7 +60,11 @@ export default function Product() {
       setTimeout(() => {
         setIsloading(false)
       }, 2000)
-    },[page])
+    return () => {
+      sessionStorage.setItem("ctId","all");
+      sessionStorage.setItem("ctitle","");
+      }
+    },[page , reaload, filter])
     return (
       <section id="product">
         <div>
@@ -46,29 +78,54 @@ export default function Product() {
               <button>
                 <FaSearch />
               </button>
-              <select id="filter" title="filter">
-                <option>Selecione uma categoria</option>
+              <select
+                id="filter"
+                title="filter"
+                onChange={(e) => {
+                  setPage((prev) => 1);
+                  setSelectCategory(prev => e.target[e.target.selectedIndex].text)
+                  setFilter((prev) => e.target.value);
+                }}
+              >
+                <option value={"all"}>Selecione uma categoria</option>
+                <option value={"all"}>Todas as categorias</option>
                 {categorys.map((ct) => (
-                  <option key={ct.id} value={ct.title}>
+                  <option key={ct.id} value={ct.id}>
                     {ct.title}
                   </option>
                 ))}
               </select>
             </form>
-            <h2>Produtos disponíveis</h2>
+            {filter == "all" ? (
+              <h2>Produtos disponíveis  </h2>
+            ) : (
+              <h2>Resultados de  {selectActegory}  {total} </h2>
+            )}
             <aside>
-              {product.map((prod) => (
+              { product?.length > 0 &&  product?.map((prod) => (
                 <figure key={prod.id}>
                   <div>
                     <img src={prod.img_url} loading="lazy" />
                   </div>
                   <figcaption>
                     <h3>{prod.name}</h3>
+                    <p
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      <FaCircle
+                        style={{
+                          color: "var(--blue)",
+                        }}
+                      />
+                      <i>{prod?.title}</i>
+                    </p>
                     <div>
                       <strong>
                         {Number(prod.current_price).toLocaleString("pt")}kz
                       </strong>
-                      {prod.old_price != 0  && (
+                      {prod.old_price != 0 && (
                         <del>
                           {Number(prod.old_price).toLocaleString("pt")}
                           kz
@@ -101,16 +158,19 @@ export default function Product() {
                 </figure>
               ))}
             </aside>
-              <button onClick={() => {
+            <button
+              onClick={() => {
                 if (lasPage > page) {
                   setPage((prev) => prev + 1);
                   return;
                 } else {
-                  toast("Limite")
-                  return
+                  toast("Limite");
+                  return;
                 }
-                
-            }}>Ver Mais</button>
+              }}
+            >
+              Ver Mais
+            </button>
           </>
         )}
       </section>

@@ -17,6 +17,22 @@ export function getbuget() {
   }
 }
 
+export function getbugetReal() {
+  try {
+    const produtos = JSON.parse(localStorage.getItem("card"));
+    if (produtos?.length == 0) {
+      return Number(0).toLocaleString("pt");
+    } else {
+      let buget = 0;
+      produtos?.forEach((prod) => {
+        buget += Number(prod?.price) * Number(prod?.qtd);
+      });
+      return Number(buget)
+    }
+  } catch (error) {
+    return Number(0)
+  }
+}
 export function getTotalProduct() {
   try {
     const produtos = JSON.parse(localStorage.getItem("card"));
@@ -34,7 +50,7 @@ export function getTotalProduct() {
   }
 }
 
-export function getAllProduct(produtos) {
+export function getAllProduct() {
   try {
     return JSON.parse(localStorage.getItem("card"));
   } catch (error) {

@@ -1,18 +1,37 @@
-import { getAllProduct, getTotalProduct, getbuget } from "./card";
+import { getAllProduct, getTotalProduct ,getbugetReal } from "./card";
 
-export function checkout(checkoutDetails) {
-
-    const check = {
-        protuct: getAllProduct(),
-        budget: getbuget(),
-        totalProduct: getTotalProduct(),
-        methodPay: checkoutDetails.methodPay,
-        adress: {
-            street: checkoutDetails.street,
-            Nhouse: checkoutDetails.Nhouse,
-            qoute: checkoutDetails.qoute,
-            city: checkoutDetails.city,
-        },
+export async function createOrder(adress) {
+    
+    const token = localStorage.getItem("token");
+    const orders = {
+      cep: adress?.cep,
+      city: adress?.city,
+      qoute: adress?.qoute,
+      clientId: localStorage.getItem("uid"),
+      order_detais: {
+        payForm: adress?.methodPay,
+        total_Pay: getbugetReal(),
+        totalPoduct: getTotalProduct(),
+      },
+      orders_food: getAllProduct(),
     };
-    console.log(check)
+     try {
+       const API = await fetch(`http://localhost:8080/order`, {
+         headers: {
+           "Content-Type": "application/json",
+           authorization: token,
+         },
+         body: JSON.stringify(orders),
+         method: "POST",
+       });
+       const response = await API.json();
+       console.log(response)
+       if (response?.data == "created") {
+         return true;
+       } else {
+         return false;
+       }
+     } catch (error) {
+       return error;
+     }
 }

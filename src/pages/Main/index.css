@@ -71,7 +71,6 @@
     width: 450px;
     margin-top: 50px;
     transition: all .5s linear;
-    animation: apper2 1s linear;
 }
 
 #main > article:nth-of-type(2){
@@ -91,11 +90,18 @@
     padding-top: 10px;
     text-align: start;
     justify-content: space-between;
+    overflow: hidden;
+}
+
+#main > article:nth-of-type(2)  p{
+    overflow: auto;
+    height: auto;
+    overflow: hidden;
+    font-size: 13pt;
 }
 #main > article:nth-of-type(2)  img{
     width: 450px;
     height: 450px;
-    border: double var(--pink) 8px;
     border-radius: 50%;
 }
 
@@ -128,8 +134,9 @@
     display: flex;
 }
 #main > article:nth-of-type(3)  img{
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 70px;
+
 
 }
 #main > article:nth-of-type(3)  p{

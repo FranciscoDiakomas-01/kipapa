@@ -15,7 +15,7 @@ export async function createOrder(adress) {
       },
       orders_food: getAllProduct(),
     };
-     try {
+  try {
        const API = await fetch(`http://localhost:8080/order`, {
          headers: {
            "Content-Type": "application/json",

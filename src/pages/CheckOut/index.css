@@ -116,6 +116,9 @@
 }
 
 #checkout > article:last-of-type form{
+    width: 90%;
+}
+#checkout > article:last-of-type form > span{
     grid-template-columns: 1fr;
     gap: 30px;
     width: 100%;

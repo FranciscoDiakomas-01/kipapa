@@ -1,7 +1,7 @@
 #category{
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     width: 100%;
     padding-top: 80px;
     min-height: 100dvh;
@@ -10,7 +10,6 @@
 #category > article:first-of-type h1{
     
     transition: all .5s linear;
-    animation: apper 1s linear;
 }
 #category > article:first-of-type{
     display: flex;
@@ -21,7 +20,7 @@
     align-items: center;
     background-image: linear-gradient(#00000087 , #000000aa), url(../../assets/457502520_18013934408605621_3259600718425961618_n.jpg);
     color: var(--white);
-    height: 400px;
+    height: 300px;
     justify-content: center;
     align-items: center;
     font-size: 62pt;
@@ -46,7 +45,7 @@
 
 #category > article:last-of-type img{
     height: 130px;
-    width: 130px;
+    width: 100px;
 }
 
 #category > article:last-of-type figure{
@@ -59,7 +58,6 @@
     gap: 40px;
     transition: all .5s linear;
     box-shadow: 4px 4px 4px #00000024;
-    animation: apper2 1s linear;
 }
 #category > article:last-of-type figure span{
     display: flex;
@@ -131,7 +129,7 @@
 
 #category > article:last-of-type img{
     height: 100px;
-    width: 100px;
+    width: 80px;
 }
 
 #category > article:last-of-type figure > div button{
@@ -141,7 +139,15 @@
 
 #category > article:first-of-type{
     font-size: 40pt;
-    height: 250px;
+    height: 200px;
+}
+
+#category > article:last-of-type figure span{
+    width: 60%;
+}
+
+#category > article:last-of-type{
+    gap: 0px;
 }
 }
 

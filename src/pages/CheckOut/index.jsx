@@ -99,7 +99,7 @@ export default function CheckOut() {
                     onChange={(e) => {
                       setCheckoutDetails((prev) => ({
                         ...prev,
-                        street: e.target.value,
+                        cep: e.target.value,
                       }));
                     }}
                   />
@@ -132,10 +132,9 @@ export default function CheckOut() {
                     e.preventDefault()
                     const response = await createOrder(checkoutDetails);
                     if (response) {
-                      toast.success("Peido enviado com sucesso!");
+                      toast.success("Pedido enviado com sucesso!");
                       localStorage.setItem("card", []);
                       nav("/");
-                      location.reload();
                       return;
                     } else {
                       toast.error("Preencha todos os Campos");

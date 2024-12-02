@@ -11,6 +11,8 @@ import Shop from './pages/Shop/index.jsx';
 import CheckOut from './pages/CheckOut/index.jsx';
 import NotFound from './pages/NotFound/index.jsx';
 import Login from './pages/login/index.jsx';
+import "aos/dist/aos.css";
+
 const router = createBrowserRouter([
   {
     path: "/",

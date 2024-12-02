@@ -129,8 +129,7 @@
         padding: 20px;
         border-radius: 8px;
         width: 90%;
-    transition: all .5s linear;
-    animation: apper 1s linear;
+        transition: all .5s linear;
     }
     #shops > article:last-child  figure > p:last-child{
         height: 40px;
@@ -146,6 +145,7 @@
         grid-template-columns: 1fr;
         width: 100%;
         gap: 40px 20px;
+        overflow: hidden;
         place-items: center;
 }
 }

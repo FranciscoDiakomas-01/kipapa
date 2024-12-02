@@ -67,10 +67,15 @@ export default function Header() {
           <button
             onClick={(e) => {
               if (e.target.textContent == "Sair") {
-                localStorage.clear()
-                sessionStorage.clear()
+                localStorage.clear();
+                sessionStorage.clear();
+                nav("/");
+                return;
+              } else {
+                nav("/login");
+                localStorage.clear();
+                sessionStorage.clear();
               }
-              nav("/login");
             }}
           >
             {localStorage.getItem("token") ? "Sair" : "Entrar"}
@@ -97,8 +102,17 @@ export default function Header() {
           </Link>
         ))}
         <button
-          onClick={() => {
-            nav("/login");
+          onClick={(e) => {
+            if (e.target.textContent == "Sair") {
+              localStorage.clear();
+              sessionStorage.clear();
+              nav("/")
+              return;
+            } else {
+              nav("/login");
+              localStorage.clear();
+              sessionStorage.clear();
+            }
           }}
         >
           {localStorage.getItem("token") ? "Sair" : "Entrar"}

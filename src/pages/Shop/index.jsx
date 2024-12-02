@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Loader from "../../components/loader";
 import { getMyOrders } from "../../services/shops";
 import { useNavigate } from "react-router-dom";
+  import AOS from "aos";
 export default function Shop() {
   const [shops, setShop] = useState([]);
   const [isLoading, setIsloadin] = useState(true);
@@ -16,7 +17,12 @@ export default function Shop() {
   });
   useEffect(() => {
 
-    
+    AOS.init({
+      duration: 1000, // Duração da animação em milissegundos
+      easing: "ease-in-out", // Função de timing
+      offset: 200, // Deslocamento em pixels
+    });
+    AOS.refresh();
     if (localStorage.getItem("token") == undefined || localStorage.getItem("token") == null) {
       nav("/login")
     }
@@ -35,7 +41,7 @@ export default function Shop() {
     }, 1500);
   }, [page, reload]);
   return (
-    <section id="shops" >
+    <section id="shops">
       <article>
         <h1>Meus Pedidos</h1>
       </article>
@@ -53,7 +59,7 @@ export default function Shop() {
                   {Array.isArray(shops) &&
                     shops?.length > 0 &&
                     shops.map((item, index) => (
-                      <figure key={index}>
+                      <figure key={index} data-aos="flip-left">
                         <span>Pedido Nº {item.id}</span>
                         <p> Data : {item?.created_at}</p>
                         <p>
@@ -203,7 +209,7 @@ export default function Shop() {
                   </tbody>
                 </table>
                 <p>
-                  {pagination.currentPage} de 
+                  {pagination.currentPage} de
                   {pagination.lastPage == 0
                     ? pagination.lastPage + 1
                     : pagination.lastPage}
@@ -241,10 +247,14 @@ export default function Shop() {
                 </span>
               </>
             ) : (
-                  <h1 style={{
-                    fontSize: '22pt',
-                    color : 'var(--pink)'
-              }}>Sem Pedidos</h1>
+              <h1
+                style={{
+                  fontSize: "22pt",
+                  color: "var(--pink)",
+                }}
+              >
+                Sem Pedidos
+              </h1>
             )}
           </>
         )}

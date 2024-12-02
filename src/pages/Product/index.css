@@ -4,7 +4,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     padding-top: 80px;
     min-height: 100dvh;
 }
@@ -34,7 +34,7 @@
     align-items: center;
     background-image: linear-gradient(#00000087 , #000000aa), url(../../assets/bugger.jpg);
     color: var(--white);
-    height: 400px;
+    height: 300px;
     justify-content: center;
     align-items: center;
     font-size: 62pt;
@@ -85,7 +85,6 @@
 }
 #product > div h1{
     transition: all .5s linear;
-    animation: apper 1s linear;
 }
 
 #product  > aside{
@@ -96,8 +95,8 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 #product  > aside img{
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 100px;
 }
 
 #product  > aside figure{
@@ -112,7 +111,6 @@
     position: relative;
     background-color: var(--gray);
     transition: all .5s linear;
-    animation: apper2 2s linear;
 }
 
 #product > h2{
@@ -293,7 +291,9 @@
 
 /*Tablet*/
 @media screen and (max-width : 1024px) and (min-width : 719px) {
-    
+    #product{
+    padding-top: 0px;
+}
     #product  > aside{
     width: 100%;
     gap: 20px;

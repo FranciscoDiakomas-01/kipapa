@@ -2,7 +2,7 @@
 import "./App.css";
 import Header from "./components/header";
 import logo from "./assets/321097281_1948082938901845_9073110493333833804_n.jpg";
-import { FaFacebook , FaWhatsapp , FaInstagram } from "react-icons/fa";
+import { FaFacebook , FaWhatsapp , FaInstagram, FaGithub} from "react-icons/fa";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -13,7 +13,7 @@ const socialmedia = [
   {
     id: 1,
     icon: <FaFacebook />,
-    link: "http://faebook.com",
+    link: "https://www.facebook.com/profile.php?id=61560288840032",
   },
   {
     id: 2,
@@ -22,7 +22,12 @@ const socialmedia = [
   },
   {
     id: 3,
-    icon: <FaInstagram />,
+    icon: <FaGithub />,
+    link: "https://github.com/FranciscoDiakomas-01/",
+  },
+  {
+    id: 4,
+    icon: <FaWhatsapp />,
     link: "http://faebook.com",
   },
 ];
@@ -106,7 +111,7 @@ export function App() {
               : "Estamos Aberto"}
           </button>
         </div>
-        <p>Kipapa&copy; | Todos dos Direitos Reservados</p>
+        <p>Francisco Diakomas &copy; | Todos dos Direitos Reservados</p>
       </footer>
     </main>
   );

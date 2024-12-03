@@ -32,7 +32,15 @@ export default function Header() {
   return (
     <header id="header">
       <Card />
-      <nav>
+      <nav
+        onClick={() => {
+          window.scrollTo({
+            behavior: "smooth",
+            left: 0,
+            top: -100000,
+          });
+        }}
+      >
         <div
           onClick={() => {
             nav("/");
@@ -44,7 +52,17 @@ export default function Header() {
         </div>
         <ol>
           {links.map((link) => (
-            <Link key={link.name} to={link.path}>
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={() => {
+                window.scrollTo({
+                  behavior: "smooth",
+                  left: 0,
+                  top: -100000,
+                });
+              }}
+            >
               {link.name}
             </Link>
           ))}
@@ -97,7 +115,17 @@ export default function Header() {
         }}
       >
         {links.map((link) => (
-          <Link key={link.name} to={link.path}>
+          <Link
+            key={link.name}
+            to={link.path}
+            onClick={() => {
+              window.scrollTo({
+                behavior: "smooth",
+                left: 0,
+                top: -100000,
+              });
+            }}
+          >
             {link.name}
           </Link>
         ))}
@@ -106,7 +134,7 @@ export default function Header() {
             if (e.target.textContent == "Sair") {
               localStorage.clear();
               sessionStorage.clear();
-              nav("/")
+              nav("/");
               return;
             } else {
               nav("/login");

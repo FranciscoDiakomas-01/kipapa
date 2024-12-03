@@ -5,11 +5,13 @@ import { useEffect, useState } from 'react';
 import { login, singin } from '../../services/login.js';
 import { toast, ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import Loader from './../../components/loader/index';
 export default function Login() {
   const [active, setActive] = useState(true)
   const [email, setEmail] = useState("")
   const [name , setName] = useState("")
   const [password, setPassword] = useState("")
+  const [loading , setLoading] = useState(false)
   const nav = useNavigate()
 
   useEffect(() => {
@@ -23,6 +25,7 @@ export default function Login() {
     if (email?.length < 0 || password?.length < 8) {
       return toast.error("Preenha todos os dados")
     } else {
+      setLoading(true);
       const body = {
         email: email,
         password: password,
@@ -30,11 +33,14 @@ export default function Login() {
       const response = await login(body)
       if (response) {
         toast.success("Logado com sucesso");
+        setTimeout(() => {
+        setLoading(false);
+      }, 2000);
         localStorage.setItem("token", response?.token)
         localStorage.setItem("uid", response?.id);
         setTimeout(() => {
           nav("/")
-        },1000)
+        },3000)
         return
       } else {
         toast.error("Conta não existe")
@@ -48,6 +54,7 @@ export default function Login() {
       if (email?.length < 0 || password?.length < 8 || !name) {
         return toast.error("Preenha todos os dados");
       } else {
+        setLoading(true)
         const body = {
           email: email,
           password: password,
@@ -55,13 +62,17 @@ export default function Login() {
         };
         const response = await singin(body);
         if (response) {
-          toast.success("Conta Criada com sucesso");
+         
           const response1 = await login(body);
           localStorage.setItem("token", response1?.token);
           localStorage.setItem("uid", response1?.id);
+          toast.success("Conta Criada com sucesso");
+           setTimeout(() => {
+             setLoading(false);
+           }, 2000);
           setTimeout(() => {
             nav("/");
-          }, 1000);
+          }, 3000);
           return;
         } else {
           toast.error("Dados Inválidos");
@@ -111,6 +122,8 @@ export default function Login() {
                 >
                   Não tem uma conta? Crair.
                 </a>
+                <p></p>
+                {loading && <Loader />}
               </div>
             </form>
             <article></article>
@@ -163,6 +176,9 @@ export default function Login() {
                 >
                   Já tem uma conta? Entrar.
                 </a>
+
+                <p></p>
+                {loading && <Loader />}
               </div>
             </form>
             <article></article>

@@ -1,7 +1,7 @@
 ::-webkit-scrollbar{
     color: #fff;
-    width: 10px;
-    height: 40px;
+    width: 8px;
+    height: 0px;
 }
 ::selection{
     background-color: var(--pink);
@@ -11,6 +11,6 @@
 ::-webkit-scrollbar-thumb{
     background-color: var(--pink);
     border-radius: 0px;
-    width: 8px;
-    height: 20px;
+    width: 3px;
+    border-radius: 10px;
 }

@@ -36,7 +36,7 @@ export default function Category() {
           <article>
             <h2>Categorias Disponíveis</h2>
             <aside>
-              {categorys.map((ct) => (
+              {categorys?.map((ct) => (
                 <figure key={ct?.id} data-aos="flip-left">
                   <span>
                     <img src={ct.img_url} loading="lazy" />

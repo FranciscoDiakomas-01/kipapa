@@ -19,7 +19,7 @@ export default function Card() {
     }
     const interval = setInterval(() => {
       const cr = document.getElementById("card")
-      if (!cr.classList.contains("open")) {
+      if (!cr?.classList?.contains("open")) {
           setBuget(getbuget());
           setProduct(getAllProduct());
 
@@ -37,6 +37,7 @@ export default function Card() {
       onMouseLeave={() => {
         document.getElementById("card").classList.remove("open");
       }}
+    
     >
       <button
         onClick={() => {

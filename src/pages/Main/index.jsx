@@ -103,16 +103,14 @@ export default function Main() {
           <aside>
             <h1 data-aos="fade-down">Sobre Nós</h1>
             <p data-aos="fade-right">
-              Lorem ipsum dolor sit amet consectetur adipisicing
-              elit.Aliquid,illo? Vel cum impedit perspiciatis enim,
-              dignissimosblanditiisdolorum, dolor velit quaerat unde
-              magnamexercitationem.Architecto eius ipsa consectetur
-              minimaimpedit.Lorem ipsum dolor sit amet consectetur adipisicing
-              eli Vel cum impedit perspiciatis enim,
-              dignissimosblanditiisdolorum, dolor velit quaerat unde
-              magnamexercitationem.Architecto eius ipsa consectetur
-              minimaimpedit.Lorem ipsum dolor sit amet consectetur adipisicing
-              elit.
+              Está sem tempo para cozinhar? Quer experimentar novos sabores?
+              Conte com a gente! Oferecemos uma variedade de [tipos de produtos]
+              deliciosos, preparados com ingredientes frescos e de alta
+              qualidade. Nosso compromisso é entregar seu pedido no menor tempo
+              possível, sem abrir mão da qualidade. Além disso, contamos com um
+              atendimento personalizado e diversas formas de pagamento para
+              facilitar a sua vida. Faça seu pedido agora mesmo pelo nosso site
+              ou aplicativo e aproveite nossas promoções exclusivas!
             </p>
             <button data-aos="fade-left">Leia mais</button>
           </aside>

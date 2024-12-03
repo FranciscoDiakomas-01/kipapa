@@ -35,10 +35,14 @@ export default function Shop() {
         lastPage: response?.latPage,
       }));
     }
-    get();
+    get()
+    const interval = setInterval(()=>{get();},1000)
     setTimeout(() => {
       setIsloadin(false);
     }, 1500);
+    return () => {
+      clearInterval(interval)
+    }
   }, [page, reload]);
   return (
     <section id="shops">

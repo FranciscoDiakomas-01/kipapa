@@ -47,6 +47,9 @@ const links = [
 export function App() {
   const [payForms, setPayForms] = useState()
   useEffect(() => {
+    
+    sessionStorage.setItem("ctId", "all");
+    sessionStorage.getItem("ctitle" , "");
     async function get() {
       const result = await getAllPayForm()
       setPayForms(prev => result?.data)

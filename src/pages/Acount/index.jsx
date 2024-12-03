@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
-import { getClientData, UpdateClient } from "../../services/acount";
+import { getClientData, UpdateClient } from "../../services/acount.js";
 import "./index.css";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";

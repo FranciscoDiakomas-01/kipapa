@@ -2,7 +2,7 @@
 import './index.css'
 import logo from '../../assets/321097281_1948082938901845_9073110493333833804_n.jpg'
 import { useEffect, useState } from 'react';
-import { login, singin } from '../../services/login';
+import { login, singin } from '../../services/login.js';
 import { toast, ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 export default function Login() {

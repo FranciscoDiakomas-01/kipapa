@@ -5,7 +5,7 @@ import image from '../../assets/bugger.jpg'
 import { FaArrowLeft, FaArrowRight, FaShoppingCart} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import bg2 from '../../assets/464745397_18022215284605621_2273606827089846785_n.jpg'
-import { getAllCategory } from "../../services/CategoryProduct";
+import { getAllCategory } from "../../services/CategoryProduct.js";
 import { useState, useEffect } from 'react'
 import AOS from 'aos'
 export default function Main() {

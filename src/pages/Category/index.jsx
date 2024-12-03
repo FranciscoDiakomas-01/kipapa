@@ -2,7 +2,7 @@ import './index.css'
 import Loader from '../../components/loader';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAllCategory } from '../../services/CategoryProduct'
+import { getAllCategory } from '../../services/CategoryProduct.js'
 import AOS from 'aos'
 export default function Category() {
     const nav = useNavigate()

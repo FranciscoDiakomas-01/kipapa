@@ -6,9 +6,9 @@ import { FaShoppingCart , FaSearch , FaCircle} from 'react-icons/fa';
 import Loader from '../../components/loader';
 import { addProduct } from '../../services/card';
 import { toast } from 'react-toastify';
-import { getAllProduct, getAllProductByCategory } from '../../services/product';
+import { getAllProduct, getAllProductByCategory } from '../../services/Product.js';
 import AOS from 'aos'
-import { getAllCategory } from '../../services/CategoryProduct';
+import { getAllCategory } from '../../services/CategoryProduct.js';
 export default function Product() {
 
   

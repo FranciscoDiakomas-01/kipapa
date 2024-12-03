@@ -3,9 +3,9 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import { CanChekout } from "../../services/card";
 import { useNavigate } from "react-router-dom";
-import {createOrder } from "../../services/checkout";
-import { getClientData } from "../../services/acount";
-import { getAllPayForm } from "../../services/pay";
+import {createOrder } from "../../services/checkout.js";
+import { getClientData } from "../../services/acount.js";
+import { getAllPayForm } from "../../services/pay.js";
 import { toast } from "react-toastify";
 export default function CheckOut() {
     const [checkoutDetails, setCheckoutDetails] = useState({

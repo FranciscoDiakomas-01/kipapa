@@ -2,7 +2,7 @@
 import "./index.css";
 import { useState, useEffect } from "react";
 import Loader from "../../components/loader";
-import { getMyOrders } from "../../services/shops";
+import { getMyOrders } from "../../services/shops.js";
 import { useNavigate } from "react-router-dom";
   import AOS from "aos";
 export default function Shop() {

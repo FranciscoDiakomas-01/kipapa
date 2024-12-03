@@ -17,8 +17,19 @@ export default function Card() {
       toast.info("Carrinha Vazia");
       localStorage.setItem("card", []);
     }
+    const interval = setInterval(() => {
+      const cr = document.getElementById("card")
+      if (!cr.classList.contains("open")) {
+          setBuget(getbuget());
+          setProduct(getAllProduct());
+
+      } 
+    }, 1000)
     setBuget(getbuget());
     setProduct(getAllProduct());
+    return ()=> {
+      clearInterval(interval)
+    }
   }, [reload]);
   return (
     <article
@@ -74,8 +85,6 @@ export default function Card() {
         )}
       </aside>
       <div>
-        {CanChekout() ? (
-          <>
             <span>
               <div>Total Orçamento : {buget}kz</div>
             </span>
@@ -106,15 +115,24 @@ export default function Card() {
             >
               Finalizar a Compra{" "}
             </button>
-          </>
-        ) : (
-            
-            <button onClick={() => {
+        <button style={{
+              
+          backgroundColor: 'var(--blue)',
+          color : 'var(--white)'
+            }} onClick={() => {
+               if (
+                 localStorage.getItem("token") == undefined &&
+                 localStorage.getItem("token") == null
+               ) {
+                 toast.info("Inicie sessão");
+                 setTimeout(() => {
+                   navigate("/login");
+                 }, 1000);
+                 return;
+               }
               document.getElementById("card").classList.remove("open");
               navigate("/shop");
-            }}>Minhas Compras</button>
-        )
-      }
+            }}>Meus Pedidos</button>
       </div>
     </article>
   );

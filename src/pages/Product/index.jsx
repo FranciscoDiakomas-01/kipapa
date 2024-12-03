@@ -24,16 +24,16 @@ export default function Product() {
   useEffect(() => {
     
     AOS.init({
-      duration: 1000, // Duração da animação em milissegundos
-      easing: "ease-in-out", // Função de timing
-      offset: 200, // Deslocamento em pixels
+      duration: 1000,
+      easing: "ease-in-out",
+      offset: 200,
       
     });
     AOS.refresh();
     async function get() {
       const respose1 = await getAllCategory(1, 0)
       setCategorys(prev => respose1?.data)
-      console.log(filter)
+          setIsloading(true);
         if (filter != "all") {
           //getbyCategory
           const response = await getAllProductByCategory(page, 10, filter)
@@ -100,7 +100,7 @@ export default function Product() {
               >
                 <option value={"all"}>Selecione uma categoria</option>
                 <option value={"all"}>Todas as categorias</option>
-                {categorys.map((ct) => (
+                { categorys?.length > 0 &&  categorys?.map((ct) => (
                   <option key={ct.id} value={ct.id}>
                     {ct.title}
                   </option>

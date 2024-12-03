@@ -151,7 +151,7 @@
 }
 @keyframes inout {
     from{
-        transform: translateX(-100vw);
+        transform: translateX(-10vw);
     }to{
         
         transform: translateX(100vw);

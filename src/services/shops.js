@@ -4,7 +4,7 @@ export async function getMyOrders(page = 1, limit = 10) {
     const id = localStorage.getItem("uid");
   try {
     const API = await fetch(
-      `http://localhost:8080/clientOrder/${id}?page=${page}&limit=${limit}`,
+      `https://kipapa-backend.onrender.com/clientOrder/${id}?page=${page}&limit=${limit}`,
       {
         headers: {
           "Content-Type": "application/json",

@@ -11,6 +11,7 @@ export async function getAllProduct(page = 1, limit = 10) {
          }
        );
        const response = await API.json();
+       console.log(response)
        return response
      } catch (error) {
        return error;
@@ -31,6 +32,8 @@ export async function getAllProductByCategory(page = 1, limit = 10 , id) {
       }
     );
     const response = await API.json();
+    
+       console.log(response);
     return response;
   } catch (error) {
     return error;

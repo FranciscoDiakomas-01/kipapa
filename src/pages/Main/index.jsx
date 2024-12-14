@@ -6,6 +6,7 @@ import { FaArrowLeft, FaArrowRight, FaPaperPlane, FaShoppingCart} from 'react-ic
 import { useNavigate } from 'react-router-dom'
 import bg2 from '../../assets/464745397_18022215284605621_2273606827089846785_n.jpg'
 import { getAllCategory } from "../../services/CategoryProduct.js";
+import chef from '../../assets/chef1.png'
 import { useState, useEffect } from 'react'
 import AOS from 'aos'
 export default function Main() {
@@ -95,11 +96,7 @@ export default function Main() {
           </aside>
         </article>
         <article>
-          <img
-            data-aos="zoom-in-down"
-            src={banners[Active].cover}
-            loading="lazy"
-          />
+          <img data-aos="zoom-in-down" src={chef} loading="lazy" />
           <aside>
             <h1 data-aos="fade-down"> Está sem tempo para cozinhar? </h1>
             <p data-aos="fade-right">
@@ -109,7 +106,7 @@ export default function Main() {
               pedido no menor tempo possível, sem abrir mão da qualidade. Além
               disso, contamos com um atendimento personalizado e diversas formas
               de pagamento para facilitar a sua vida. Faça seu pedido agora
-              mesmo pelo nosso site ou aplicativo e aproveite nossas promoções
+              mesmo pelo nosso site e aproveite nossas promoções
               exclusivas!
             </p>
             <button

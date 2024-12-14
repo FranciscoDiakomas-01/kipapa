@@ -2,7 +2,7 @@ import "./index.css";
 import { useState, useEffect } from "react";
 import { getbuget , addProduct , getAllProduct , removeProduct , CanChekout} from "../../services/card";
 import { toast } from "react-toastify";
-import { FaSync , FaShoppingBag} from "react-icons/fa";
+import { FaShoppingBag} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 export default function Card() {
   const navigate = useNavigate()
@@ -39,13 +39,6 @@ export default function Card() {
       }}
     
     >
-      <button
-        onClick={() => {
-          setReload((prev) => !prev);
-        }}
-      >
-        <FaSync />
-      </button>
       <aside>
         {product?.length > 0 ? (
           <>

@@ -11,6 +11,7 @@
     z-index: 99;
     height: 11%;
     align-items: center;
+    z-index: 999999999999999999999999999999;
     display: flex;
 }
 

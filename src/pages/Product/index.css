@@ -292,7 +292,7 @@
 /*Tablet*/
 @media screen and (max-width : 1024px) and (min-width : 719px) {
     #product{
-    padding-top: 0px;
+    padding-top: 50px;
 }
     #product  > aside{
     width: 100%;

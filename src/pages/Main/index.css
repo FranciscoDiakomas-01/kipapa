@@ -100,8 +100,8 @@
     font-size: 13pt;
 }
 #main > article:nth-of-type(2)  img{
-    width: 450px;
-    height: 450px;
+    width: 500px;
+    height: 550px;
 }
 
 #main > article:nth-of-type(2)  h1{
@@ -163,11 +163,67 @@
     }
 }
 
+
+
+#main > article:last-of-type {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-direction: column;
+    padding: 40px 20px;
+    margin: 10px 0;
+}
+#main > article:last-of-type h1{
+    font-size: 22pt;
+    color: var(--pink);
+    height: 80px;
+    text-align: center;
+}
+#main > article:last-of-type h2{
+    color: var(--pink);
+    text-align: center;
+}
+#main > article:last-of-type img{
+    height: 120px;
+}
+
+#main > article:last-of-type div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 40px;
+    padding: 0 20px;
+    height: 100%;
+    overflow: hidden;
+}
+#main > article:last-of-type p{
+    text-align: center;
+    color: rgb(81, 81, 81);
+}
+#main > article:last-of-type figure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: 4px 4px 4px rgba(212, 211, 211, 0.314);
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all .5s linear;
+    scale: 0.9;
+}
+
 /*
 Telefone
 */
 @media screen and (max-width : 1024px) {
-
+#main > article:last-of-type div{
+    grid-template-columns: 1fr;
+}
 #main{
     width: 100%;
     display: flex;
@@ -244,22 +300,19 @@ Telefone
     align-items: center;
 }
 #main > article:nth-of-type(2)  img{
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 350px;
+    margin-top: 50px;
 }
 
 #main > article:nth-of-type(2)  h1{
     font-size: 25pt;
-    color: var(--pink);
+    text-align: center;
 }
 
 #main > article:nth-of-type(2)  button{
-    background-color: var(--pink);
     width: 100%;
-    border: none;
-    height: 40px;
-    border-radius: 5px;
-    color: var(--white);
+    height: 45px;
 }
 #main > article:nth-of-type(3) {
     display: flex;
@@ -288,8 +341,20 @@ Telefone
     height: 350px;
     margin-top: 40px;
 }
-
+#main > article:last-of-type div{
+    grid-template-columns: 1fr 1fr;
+}
 #main > article:nth-of-type(3)  img{
     display: flex;
+}
+
+#main > article:nth-of-type(2)  aside{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 50px;
+    text-align: start;
+    align-items: center;
 }
 }

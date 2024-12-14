@@ -39,16 +39,18 @@ button:active , svg:active{
 
 footer{
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 50px;
   justify-content: space-between;
-    background-color : #3c3c3c;
-  padding: 20px;
-  color: #ffff;
+  padding: 10px;
+  color: black;
   margin-top: 80px;
   position: relative;
+  align-items: center;
+  justify-content: center;
   padding-bottom: 60px;
+  text-align: center;
 }
 
 footer> p{
@@ -66,8 +68,7 @@ footer img{
 }
 
 footer svg{
-  color: var(--white);
-  font-size: 22pt;
+  font-size: 18pt;
 }
 
 footer ol{
@@ -78,7 +79,9 @@ footer ol{
 footer > div{
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 footer  span{
@@ -88,20 +91,12 @@ footer  span{
 }
 
 footer  a{
-  color: var(--white);
+  color:black;
   width: 79px;
 }
 footer  h1{
-  color: var(--white);
+  color:black;
   font-size: 15pt;
-}
-footer  button{
-  border: none;
-  height: 40px;
-  border-radius: 30px;
-  background-color: var(--green);
-  color: var(--white);
-  width: 200px;
 }
 
 input , select{
@@ -136,7 +131,6 @@ Telefone
 
   footer{
     grid-template-columns: 1fr;
-    background-color : #3c3c3c;
   }
     footer > div > span:first-of-type{
     flex-direction: column;

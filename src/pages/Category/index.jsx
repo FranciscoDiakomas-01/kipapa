@@ -13,7 +13,7 @@ export default function Category() {
     AOS.init({
       duration: 1000, // Duração da animação em milissegundos
       easing: "ease-in-out", // Função de timing
-      offset: 200, // Deslocamento em pixels
+      offset:100, // Deslocamento em pixels
     });
     AOS.refresh();
       async function get() {

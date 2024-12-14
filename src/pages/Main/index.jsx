@@ -2,7 +2,7 @@ import './index.css'
 import pizza from '../../assets/pngegg (9).png'
 import hambuger from '../../assets/pngegg (1).png'
 import image from '../../assets/bugger.jpg'
-import { FaArrowLeft, FaArrowRight, FaShoppingCart} from 'react-icons/fa'
+import { FaArrowLeft, FaArrowRight, FaPaperPlane, FaShoppingCart} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import bg2 from '../../assets/464745397_18022215284605621_2273606827089846785_n.jpg'
 import { getAllCategory } from "../../services/CategoryProduct.js";
@@ -31,7 +31,7 @@ export default function Main() {
         AOS.init({
           duration: 1000, // Duração da animação em milissegundos
           easing: "ease-in-out", // Função de timing
-          offset: 100, // Deslocamento em pixels
+          offset: 80, // Deslocamento em pixels
 
         });
         AOS.refresh();
@@ -101,18 +101,26 @@ export default function Main() {
             loading="lazy"
           />
           <aside>
-            <h1 data-aos="fade-down">Sobre Nós</h1>
+            <h1 data-aos="fade-down"> Está sem tempo para cozinhar? </h1>
             <p data-aos="fade-right">
-              Está sem tempo para cozinhar? Quer experimentar novos sabores?
-              Conte com a gente! Oferecemos uma variedade de [tipos de produtos]
-              deliciosos, preparados com ingredientes frescos e de alta
-              qualidade. Nosso compromisso é entregar seu pedido no menor tempo
-              possível, sem abrir mão da qualidade. Além disso, contamos com um
-              atendimento personalizado e diversas formas de pagamento para
-              facilitar a sua vida. Faça seu pedido agora mesmo pelo nosso site
-              ou aplicativo e aproveite nossas promoções exclusivas!
+              Quer experimentar novos sabores? Conte com a gente! Oferecemos uma
+              variedade de produtos deliciosos, preparados com ingredientes
+              frescos e de alta qualidade. Nosso compromisso é entregar seu
+              pedido no menor tempo possível, sem abrir mão da qualidade. Além
+              disso, contamos com um atendimento personalizado e diversas formas
+              de pagamento para facilitar a sua vida. Faça seu pedido agora
+              mesmo pelo nosso site ou aplicativo e aproveite nossas promoções
+              exclusivas!
             </p>
-            <button data-aos="fade-left">Leia mais</button>
+            <button
+              data-aos="fade-up"
+              onClick={() => {
+                navigate("/product");
+              }}
+            >
+              <p>Faça já o seu pedido</p>
+              <FaPaperPlane />
+            </button>
           </aside>
         </article>
         <article>

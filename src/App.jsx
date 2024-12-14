@@ -31,24 +31,6 @@ const socialmedia = [
     link: "http://faebook.com",
   },
 ];
-const links = [
-  {
-    path: "/",
-    name: "Inicial",
-  },
-  {
-    path: "/product",
-    name: "Menu",
-  },
-  {
-    path: "/category",
-    name: "Categorias",
-  },
-  {
-    path: "/contact",
-    name: "Contacto",
-  },
-];
 export function App() {
   const [payForms, setPayForms] = useState()
   useEffect(() => {
@@ -74,7 +56,6 @@ export function App() {
             <img src={logo} />
             <h1>Kipapa</h1>
           </span>
-          <p>Entre em contacto com o kipapa em qualquer rede social!</p>
           <span>
             {socialmedia.map((social, index) => (
               <Link key={index} to={social.link} target="_blank">
@@ -82,34 +63,6 @@ export function App() {
               </Link>
             ))}
           </span>
-        </div>
-        <div>
-          <h1>Formas de Pagamento</h1>
-          <ol>
-            {payForms?.length > 0 &&
-              payForms.map((pay, index) => (
-                <li key={index}>{String(pay.title).toLocaleLowerCase()}</li>
-              ))}
-          </ol>
-        </div>
-        <div>
-          <h1>Links Rápidos</h1>
-          <ol>
-            {links.map((link, index) => (
-              <Link key={index} to={link.path} target="_self">
-                {link.name}
-              </Link>
-            ))}
-          </ol>
-        </div>
-        <div>
-          <h1>Horário</h1>
-          <p>Estamos Abertos Todos dias das 08h às 22hr</p>
-          <button>
-            {new Date().getHours() < 8 || new Date().getHours() > 22
-              ? "Estamos Fechado"
-              : "Estamos Aberto"}
-          </button>
         </div>
         <p>Francisco Diakomas &copy; | Todos dos Direitos Reservados</p>
       </footer>

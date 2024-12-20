@@ -24,14 +24,14 @@ export default function Main() {
           id: 1,
           title: "Faça o Pedido",
           description:
-            "Faça o seu pedido na nossa plataforma e desfrute da variedade de produto que oferecemos para si..",
+            "Faça o seu pedido na nossa plataforma e desfrute da variedade de produto que oferecemos para si.",
           icon: svg3,
         },
         {
           id: 2,
           title: "Localização",
           description:
-            "Informe nos a sua localização ou permita que obtenhamos a sua localização de forma automática.",
+            "Informe nos a sua localização  de forma correta para que o pedido possa ser feito com sucesso.",
           icon: svg1,
         },
         {

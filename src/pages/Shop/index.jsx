@@ -80,16 +80,6 @@ export default function Shop() {
                           )}
                           kz
                         </strong>
-                        <p>
-                          Entregador :{" "}
-                          {item?.delivery?.name ? item?.delivery?.name : "..."}
-                        </p>
-                        <p>
-                          Email :{" "}
-                          {item?.delivery?.email
-                            ? item?.delivery?.email
-                            : "..."}
-                        </p>
                         {item.status == 3 ? (
                           <p
                             style={{
@@ -142,8 +132,6 @@ export default function Shop() {
                       <td>Produtos</td>
                       <td>Orçamento</td>
                       <td>F. Pagamento</td>
-                      <td>Nome Entregador</td>
-                      <td>Email</td>
                       <td>Status</td>
                     </tr>
                   </thead>
@@ -165,16 +153,6 @@ export default function Shop() {
                             {String(
                               item?.order_detais?.payForm
                             ).toLocaleLowerCase()}
-                          </td>
-                          <td>
-                            {item?.delivery?.name
-                              ? item?.delivery?.name
-                              : "..."}
-                          </td>
-                          <td>
-                            {item?.delivery?.email
-                              ? item?.delivery?.email
-                              : "..."}
                           </td>
                           <td>
                             {item.status == 3 ? (

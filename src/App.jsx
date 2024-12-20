@@ -46,7 +46,9 @@ export function App() {
   return (
     <main id="app">
       <Header />
-      <ToastContainer />
+      <ToastContainer style={{
+        zIndex: '999999999999999999999999999'
+      }}/>
       <section>
         <Outlet />
       </section>

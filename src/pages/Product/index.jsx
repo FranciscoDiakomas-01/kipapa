@@ -27,7 +27,7 @@ export default function Product() {
     async function get() {
       setIsloading(true);
       if (filter == "all" && page == 1) {
-        const response = await getAllProduct(page, 1);
+        const response = await getAllProduct(page, 10);
         setProduct((prev) => response?.data);
         setLaspage((prev) => response?.latPage);
         setTimeout(() => {
@@ -36,7 +36,7 @@ export default function Product() {
         return;
       }
       if (page > 1 && filter == "all") {
-        const response = await getAllProduct(page, 1);
+        const response = await getAllProduct(page, 10);
         const newList = new Array(...product).concat(response?.data);
         setProduct((prev) => newList);
         setLaspage((prev) => response?.latPage);

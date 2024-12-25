@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Loader from '../../components/loader'
+import { validateCep } from "../../services/acount.js";
 export default function Acount() {
 
   const nav = useNavigate();
-  
   const [isloading, setIsloading] = useState(true);
   const [name, setName] = useState("");
   const [lastname, setlastname] = useState("");
@@ -22,7 +22,9 @@ export default function Acount() {
   useEffect(() => {
     setIsloading(true)
      if (localStorage.getItem("token") == undefined || localStorage.getItem("token") == null) {
+      setIsloading(false)
       nav("/login")
+      return
     }
     async function get() {
       const response = await getClientData();
@@ -57,10 +59,13 @@ export default function Acount() {
                 !password ||
                 password?.length < 8
               ) {
-                return toast.warn("Preencha todos campos obrigatórios");
+                return toast.warn("Preencha todos campos corretamente");
               } else {
                 if (newPass && newPass?.length < 8) {
                   return toast.warn("8 caracteres no mínimo");
+                }
+                if(!validateCep(cep)){
+                  return toast.warn("Cep inválido")
                 }
                 const client = {
                   city: city,

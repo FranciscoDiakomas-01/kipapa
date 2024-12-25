@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { useState, useEffect } from "react";
 import 'react-toastify/ReactToastify.css'
+import AOS from "aos";
 import { getAllPayForm } from "./services/pay";
 const socialmedia = [
   {
@@ -34,7 +35,13 @@ const socialmedia = [
 export function App() {
   const [payForms, setPayForms] = useState()
   useEffect(() => {
-    
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      offset: 80,
+      once: false,
+    });
+    AOS.refresh();
     sessionStorage.setItem("ctId", "all");
     sessionStorage.getItem("ctitle" , "");
     async function get() {
@@ -65,6 +72,19 @@ export function App() {
               </Link>
             ))}
           </span>
+        </div>
+        
+        <div style={{gap : '5px'}}>
+          <span>
+            <h2>Formas de Pagamento</h2>
+          </span>
+          {
+            Array.isArray(payForms) && payForms?.length > 0 &&  payForms?.map((pay, index) => (
+              <p key={index}>
+                {pay.title}
+              </p>
+            ))
+          }
         </div>
         <p>Francisco Diakomas &copy; | Todos dos Direitos Reservados</p>
       </footer>

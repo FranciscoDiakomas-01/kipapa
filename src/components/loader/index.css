@@ -8,8 +8,8 @@
 }
 #loader i{
     display: flex;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
     border: solid var(--pink) 4px;
     border-bottom: transparent solid 4px;
     border-radius: 50%;

@@ -93,6 +93,7 @@
 #card  > aside >  div img{
     height: 100px;
     width: 30%;
+    border-radius: none;
 }
 #card  > aside >  div span{
     display: flex;
@@ -136,6 +137,7 @@
 #card  > aside >  div img{
     height: 100px;
     width: 120px;
+    border-radius: none;
 }
 #card.open{
     width:100%;

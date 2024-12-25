@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Loader from "../../components/loader";
 import { getMyOrders } from "../../services/shops.js";
 import { useNavigate } from "react-router-dom";
-  import AOS from "aos";
 export default function Shop() {
   const [shops, setShop] = useState([]);
   const [isLoading, setIsloadin] = useState(true);
@@ -17,12 +16,7 @@ export default function Shop() {
   });
   useEffect(() => {
 
-    AOS.init({
-      duration: 1000, // Duração da animação em milissegundos
-      easing: "ease-in-out", // Função de timing
-      offset: 200, // Deslocamento em pixels
-    });
-    AOS.refresh();
+    
     if (localStorage.getItem("token") == undefined || localStorage.getItem("token") == null) {
       nav("/login")
     }
@@ -34,12 +28,14 @@ export default function Shop() {
         currentPage: response?.page,
         lastPage: response?.latPage,
       }));
+      
+     
     }
     get()
     const interval = setInterval(()=>{get();},1000)
-    setTimeout(() => {
-      setIsloadin(false);
-    }, 1500);
+     setTimeout(() => {
+       setIsloadin(false);
+     }, 2000);
     return () => {
       clearInterval(interval)
     }

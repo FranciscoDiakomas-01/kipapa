@@ -1,6 +1,6 @@
 
 
-export async function getAllProduct(page = 1, limit = 10) {
+export async function getAllProduct(page = 1, limit = 1) {
      try {
        const API = await fetch(
          `https://kipapa-backend.onrender.com/product?page=${page}&limit=${limit}`,
@@ -11,7 +11,6 @@ export async function getAllProduct(page = 1, limit = 10) {
          }
        );
        const response = await API.json();
-       console.log(response)
        return response
      } catch (error) {
        return error;
@@ -19,7 +18,7 @@ export async function getAllProduct(page = 1, limit = 10) {
 }
 
 
-export async function getAllProductByCategory(page = 1, limit = 10 , id) {
+export async function getAllProductByCategory(page = 1, limit = 1 , id) {
   const token = localStorage.getItem("token");
   try {
     const API = await fetch(
@@ -32,8 +31,6 @@ export async function getAllProductByCategory(page = 1, limit = 10 , id) {
       }
     );
     const response = await API.json();
-    
-       console.log(response);
     return response;
   } catch (error) {
     return error;

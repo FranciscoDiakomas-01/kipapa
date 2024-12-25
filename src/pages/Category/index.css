@@ -4,6 +4,7 @@
     width: 100%;
     padding-top: 80px;
     min-height: 100dvh;
+    gap: 10px;
 }
 
 #category > article:first-of-type h1{

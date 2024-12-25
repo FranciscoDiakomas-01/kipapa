@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 import { getAllCategory } from "../../services/CategoryProduct.js";
 import chef from '../../assets/chef1.png'
 import { useState, useEffect } from 'react'
-import AOS from 'aos'
 import svg1 from '../../assets/undraw_delivery_address_re_cjca.svg'
 import svg2 from "../../assets/undraw_on_the_way_re_swjt.svg";
 import svg3 from "../../assets/undraw_online_groceries_a02y.svg";
@@ -44,14 +43,6 @@ export default function Main() {
       ];
       const [categorys, setCategorys] = useState([]);
       useEffect(() => {
-        AOS.init({
-          duration: 1000, // Duração da animação em milissegundos
-          easing: "ease-in-out", // Função de timing
-          offset: 100, // Deslocamento em pixels
-
-        });
-        AOS.refresh();
-        
         async function get() {
           const respose = await getAllCategory(1, 0)
           setCategorys(respose?.data)

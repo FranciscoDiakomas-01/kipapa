@@ -53,3 +53,9 @@ export async function UpdateClient(client) {
     return error;
   }
 }
+
+
+export function validateCep(cep){
+    const cepPattern = /^[0-9]{5}-?[0-9]{3}$/;
+    return cepPattern.test(cep);
+  };

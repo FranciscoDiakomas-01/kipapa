@@ -151,8 +151,6 @@ Telefone
   }
   footer > div{
     gap: 20px;
-  } footer > div:last-of-type p{
-    display: none;
   }
   footer  button{
     border-radius:6px;
